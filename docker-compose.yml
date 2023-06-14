@@ -7,11 +7,12 @@ networks:
 services:
   redirecter:
     image: alpinelinux/darkhttpd
-    command: --port 80 --forward-all https://drive.google.com/file/d/1RHeuD5-B-e1p1yeihcLLUMKrNqX9EkVT/view?usp=sharing
     networks:
     - web
+    volumes:
+    - "./:/var/www/localhost/htdocs:ro"
     expose:
-    - "80"
+    - "8080"
     labels:
     - "traefik.enable=true"
     - "traefik.docker.network=web"
