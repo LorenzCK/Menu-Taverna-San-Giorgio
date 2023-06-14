@@ -5,7 +5,7 @@ networks:
     external: true
 
 services:
-  redirecter:
+  server:
     image: alpinelinux/darkhttpd
     networks:
     - web
@@ -16,7 +16,13 @@ services:
     labels:
     - "traefik.enable=true"
     - "traefik.docker.network=web"
-    - "traefik.http.routers.whoami.rule=Host(`menu.gaitasangiorgio.com`)"
+    - "traefik.http.middlewares.redirecthttps.redirectscheme.scheme=https"
+    - "traefik.http.middlewares.redirecthttps.redirectscheme.permanent=true"
+    - "traefik.http.routers.gaita.rule=Host(`menu.gaitasangiorgio.com`)"
+    - "traefik.http.routers.gaita.entrypoints=websecure"
+    - "traefik.http.routers.gaita-insecure.rule=Host(`menu.gaitasangiorgio.com`)"
+    - "traefik.http.routers.gaita-insecure.entrypoints=web"
+    - "traefik.http.routers.gaita-insecure.middlewares=redirecthttps"
     restart: unless-stopped
     logging:
       driver: "local"
