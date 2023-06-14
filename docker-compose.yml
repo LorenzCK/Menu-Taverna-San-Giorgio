@@ -1,0 +1,24 @@
+version: '3'
+
+networks:
+  web:
+    external: true
+
+services:
+  redirecter:
+    image: alpinelinux/darkhttpd
+    command: --port 80 --forward-all https://drive.google.com/file/d/1RHeuD5-B-e1p1yeihcLLUMKrNqX9EkVT/view?usp=sharing
+    networks:
+    - web
+    expose:
+    - "80"
+    labels:
+    - "traefik.enable=true"
+    - "traefik.docker.network=web"
+    - "traefik.http.routers.whoami.rule=Host(`menu.gaitasangiorgio.com`)"
+    restart: unless-stopped
+    logging:
+      driver: "local"
+      options:
+        max-size: "30m"
+        max-file: "2"
