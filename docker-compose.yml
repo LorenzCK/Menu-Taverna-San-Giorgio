@@ -10,7 +10,7 @@ services:
     networks:
     - web
     volumes:
-    - "./:/var/www/localhost/htdocs:ro"
+    - "./serve:/var/www/localhost/htdocs:ro"
     expose:
     - "8080"
     labels:
