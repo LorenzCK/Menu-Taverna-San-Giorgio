@@ -35,19 +35,19 @@
                     </li>
 
                     <li>
-                        <div class="dish">Insaleggiata de fave cum songino et cacio<span class="leaders" aria-hidden="true"></span></div>
+                        <div class="dish">Insaleggiata de fave cum songino et cacio&nbsp;<i class="fa-solid fa-leaf vegetarian"></i><span class="leaders" aria-hidden="true"></span></div>
                         <div class="price">€&nbsp;<span class="units">4</span>,00</div>
                         <div class="description">Insalata di fave, songino, noci, mandorle e pecorino con aceto balsamico alla lavanda.</div>
                     </li>
 
                     <li>
-                        <div class="dish">De ceci cum bacalao et fragole<span class="leaders" aria-hidden="true"></span></div>
+                        <div class="dish">De ceci cum bacalao et fragole&nbsp;<i class="fa-solid fa-leaf vegetarian"></i><span class="leaders" aria-hidden="true"></span></div>
                         <div class="price">€&nbsp;<span class="units">6</span>,00</div>
                         <div class="description">Insalata di ceci, rucola, porro, mandorle e fragole, con spuma di baccalà mantecato. (Opzione vegetariana senza spuma di baccalà.)</div>
                     </li>
 
                     <li>
-                        <div class="dish">Tortino de cucumerola cum crema de cacio<span class="leaders" aria-hidden="true"></span></div>
+                        <div class="dish">Tortino de cucumerola cum crema de cacio&nbsp;<i class="fa-solid fa-leaf vegetarian"></i><span class="leaders" aria-hidden="true"></span></div>
                         <div class="price">€&nbsp;<span class="units">6</span>,00</div>
                         <div class="description">Sformatino di zucchine, maggiorana, pangrattato, porro e uovo con crema al taleggio.</div>
                     </li>
@@ -63,7 +63,7 @@
 
                 <ol class="menu-list" role="list">
                     <li>
-                        <div class="dish">Cappellacci de lo carbonaio<span class="leaders" aria-hidden="true"></span></div>
+                        <div class="dish">Cappellacci de lo carbonaio&nbsp;<i class="fa-solid fa-leaf vegetarian"></i><span class="leaders" aria-hidden="true"></span></div>
                         <div class="price">€&nbsp;<span class="units">10</span>,00</div>
                         <div class="description">Cappellacci ripieni di ricotta, provola affumicata e cannella, con salsa di asparagi.</div>
                     </li>
@@ -75,7 +75,7 @@
                     </li>
 
                     <li>
-                        <div class="dish">Bona crema de porri et mandorle<span class="leaders" aria-hidden="true"></span></div>
+                        <div class="dish">Bona crema de porri et mandorle&nbsp;<i class="fa-solid fa-leaf vegetarian"></i><span class="leaders" aria-hidden="true"></span></div>
                         <div class="price">€&nbsp;<span class="units">7</span>,00</div>
                         <div class="description">Vellutata di porri con latte di mandorle e mandorle tritate.</div>
                     </li>
@@ -129,19 +129,19 @@
 
                 <ol class="menu-list" role="list">
                     <li>
-                        <div class="dish">Panzanella del contadino<span class="leaders" aria-hidden="true"></span></div>
+                        <div class="dish">Panzanella del contadino&nbsp;<i class="fa-solid fa-leaf vegetarian"></i><span class="leaders" aria-hidden="true"></span></div>
                         <div class="price">€&nbsp;<span class="units">5</span>,00</div>
                         <div class="description">Lattuga, cetriolo, pane, cipolla, basilico.</div>
                     </li>
 
                     <li>
-                        <div class="dish">Insaleggiata de verza in agrodolce<span class="leaders" aria-hidden="true"></span></div>
+                        <div class="dish">Insaleggiata de verza in agrodolce&nbsp;<i class="fa-solid fa-leaf vegetarian"></i><span class="leaders" aria-hidden="true"></span></div>
                         <div class="price">€&nbsp;<span class="units">5</span>,00</div>
                         <div class="description">Insalata di cavolo cappuccio con olio, sale, aceto, miele e uvetta.</div>
                     </li>
 
                     <li>
-                        <div class="dish">Herbe de campo cotte<span class="leaders" aria-hidden="true"></span></div>
+                        <div class="dish">Herbe de campo cotte&nbsp;<i class="fa-solid fa-leaf vegetarian"></i><span class="leaders" aria-hidden="true"></span></div>
                         <div class="price">€&nbsp;<span class="units">4</span>,00</div>
                         <div class="description">Erba mista ripassata in padella.</div>
                     </li>
@@ -157,13 +157,13 @@
 
                 <ol class="menu-list" role="list">
                     <li>
-                        <div class="dish">Dolcetti de Sancto Giorgio<span class="leaders" aria-hidden="true"></span></div>
+                        <div class="dish">Dolcetti de Sancto Giorgio&nbsp;<i class="fa-solid fa-leaf vegetarian"></i><span class="leaders" aria-hidden="true"></span></div>
                         <div class="price">€&nbsp;<span class="units">5</span>,00</div>
                         <div class="description">Assortimento di biscotti secchi: roccette al vino rosso, stinchetti agli agrumi, margherita di pastafrolla con marmellata.</div>
                     </li>
 
                     <li>
-                        <div class="dish">De crema frescha, fragole et menta<span class="leaders" aria-hidden="true"></span></div>
+                        <div class="dish">De crema frescha, fragole et menta&nbsp;<i class="fa-solid fa-leaf vegetarian"></i><span class="leaders" aria-hidden="true"></span></div>
                         <div class="price">€&nbsp;<span class="units">6</span>,00</div>
                         <div class="description">Semifreddo alla crema con zafferano, cannella e zenzero, servito con salsa di fragole e menta.</div>
                     </li>
@@ -415,6 +415,9 @@ ol.menu-list li .dish {
     font-weight: bold;
     margin-right: 6px;
 }
+ol.menu-list li .dish .vegetarian {
+    color: darkgreen;
+}
 ol.menu-list li .dish .details {
     font-weight: normal;
     font-style: italic;
@@ -436,6 +439,9 @@ ol.menu-list li .dish .leaders::after {
 }
 ol.menu-list li .price {
     font-size: 0.75rem;
+    min-width: 4ch;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
 }
 ol.menu-list li .price .units {
     font-size: 1rem;
