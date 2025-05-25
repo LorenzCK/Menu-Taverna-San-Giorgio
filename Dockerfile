@@ -13,3 +13,5 @@ RUN locale-gen && \
     update-locale LANG=it_IT
 
 RUN docker-php-ext-install intl
+
+RUN a2enmod rewrite
