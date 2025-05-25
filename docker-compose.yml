@@ -11,7 +11,7 @@ services:
     - web
     volumes:
     - "./serve:/var/www/html:ro"
-    - "../data:/data:ro"
+    - "./data:/data:ro"
     expose:
     - "80"
     labels:
