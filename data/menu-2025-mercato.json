@@ -1,0 +1,170 @@
+{
+    "opening": "2025-06-19",
+    "closing": "2025-06-29",
+    "servings": [
+        {
+            "name": "Prima immissione",
+            "dishes": [
+                {
+                    "id": "1",
+                    "name": "Antipasto de lo novo Console",
+                    "description": "Salame, capocollo, formaggio, salsiccia secca, schiacciata al rosmarino e torta al testo.",
+                    "price": 10
+                },
+                {
+                    "id": "2",
+                    "name": "Crostoni belli et boni",
+                    "description": "Bruschette con: fagioli cannellini e zenzero; spuma di baccalà mantecato con menta e spezie; zucchine marinate con aceto di mele, pepe rosa e capperi; miscela di funghi e porcini.\nOpzione vegana con bruschetta all’olio fiorito (olio aromatizzato alle erbe) al posto del baccalà.",
+                    "price": 7,
+                    "vegetarian": true
+                },
+                {
+                    "id": "3",
+                    "name": "De barbozza et salvia all’aceto",
+                    "description": "Barbozza cotta in padella con salvia e aceto servita con torta al testo.",
+                    "price": 6
+                }
+            ]
+        },
+        {
+            "name": "Seconda immissione",
+            "dishes": [
+                {
+                    "id": "4",
+                    "name": "Strangozzi del beccaio",
+                    "description": "Strangozzi, tipica pasta lunga umbra, con ragù bianco misto di vitello e maiale.",
+                    "price": 9
+                },
+                {
+                    "id": "5",
+                    "name": "Maccheroni con lumache allo zaffarano",
+                    "description": "Strozzapreti con sugo bianco di lumache, pancetta e zafferano.",
+                    "price": 10
+                },
+                {
+                    "id": "6",
+                    "name": "Zuppa di farro e ceci",
+                    "description": "Zuppa di farro e ceci con olio EVO e servita con crostino aromatizzato all’aglio.",
+                    "price": 8,
+                    "vegetarian": true
+                }
+            ]
+        },
+        {
+            "name": "Terza immissione",
+            "dishes": [
+                {
+                    "id": "7",
+                    "name": "De pullis",
+                    "details": "(da ricettario medievale)",
+                    "description": "Pollo brasato con cipolle, prugne, datteri, uva sultanina e spezie.",
+                    "price": 10
+                },
+                {
+                    "id": "8",
+                    "name": "Arrosticini di pecora alla brace",
+                    "price": 6
+                },
+                {
+                    "id": "9",
+                    "name": "Gran porco alla brace",
+                    "description": "Bistecchina di collo di maiale, salsicce norcine umbre e pancetta.",
+                    "price": 8.5
+                }
+            ]
+        },
+        {
+            "name": "Quarta immissione",
+            "dishes": [
+                {
+                    "id": "10",
+                    "name": "Herbe de campo cotte",
+                    "description": "Erba mista ripassata in padella con aglio.",
+                    "price": 5,
+                    "vegetarian": true
+                },
+                {
+                    "id": "11",
+                    "name": "Le cipolle de “Fra Cipolla”",
+                    "description": "Cipolle arrosto.\nPiatto del Boccaccio ispirato alla decima novella della sesta giornata del Decamerone.",
+                    "price": 5,
+                    "vegetarian": true
+                },
+                {
+                    "id": "12",
+                    "name": "Panzanella del contadino",
+                    "description": "Lattuga, cetriolo, pane, cipolla, basilico.",
+                    "price": 5,
+                    "vegetarian": true
+                }
+            ]
+        },
+        {
+            "name": "Quinta immissione",
+            "dishes": [
+                {
+                    "id": "13",
+                    "name": "Dolcetti de Sancto Giorgio",
+                    "description": "Assortimento di biscotti secchi da ricette monastiche medievali.",
+                    "price": 5.5
+                },
+                {
+                    "id": "14",
+                    "name": "Torta de convento",
+                    "description": "Frolla farcita con marmellata di frutti rossi e crema.",
+                    "price": 6.5
+                },
+                {
+                    "id": "15",
+                    "name": "Ippocrasso al bicchiere",
+                    "description": "Vino dolce e speziato, su ricetta medievale. Buono contro ogni malanno.",
+                    "price": 2
+                }
+            ]
+        },
+        {
+            "name": "Bono vino et cervogia",
+            "dishes": [
+                {
+                    "id": "20",
+                    "name": "Vino rosso o bianco in brocca (½&nbsp;l)",
+                    "price": 4
+                },
+                {
+                    "id": "21",
+                    "name": "Vino rosso o bianco in brocca (1&nbsp;l)",
+                    "price": 6
+                },
+                {
+                    "id": "22",
+                    "name": "Birra artigianale alla spina (½&nbsp;l)",
+                    "price": 5.5
+                },
+                {
+                    "id": "23",
+                    "name": "Birra artigianale alla spina (1&nbsp;l)",
+                    "price": 10
+                },
+                {
+                    "id": "24",
+                    "name": "Birra artigianale in bottiglia “Flea” (33&nbsp;cl)",
+                    "price": 6.5
+                },
+                {
+                    "id": "25",
+                    "name": "Acqua naturale o frizzante (¾&nbsp;l)",
+                    "price": 1
+                }
+            ]
+        },
+        {
+            "dishes": [
+                {
+                    "id": "30",
+                    "name": "Coperto",
+                    "price": 1.5
+                }
+            ]
+        }
+    ]
+}
