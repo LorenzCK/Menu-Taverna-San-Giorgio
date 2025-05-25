@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="fonts/pfeffermedieval.css" />
     <link rel="stylesheet" href="resources/bulma.min.css" />
+    <link rel="stylesheet" href="resources/sangiorgio.css" />
 
     <script src="https://kit.fontawesome.com/f7930f1730.js" crossorigin="anonymous"></script>
 
@@ -40,7 +41,7 @@
 </head>
 
 <?php
-$content = json_decode(file_get_contents('/data/menu-2024-primavera.json'), false);
+$content = json_decode(file_get_contents('/data/menu-2025-primavera.json'), false);
 $show_closed = DateTime::createFromFormat('Y-m-d', $content->closing)->modify('+1 day') < new DateTime();
 
 $formatter_opening = new IntlDateFormatter('it_IT', IntlDateFormatter::FULL, IntlDateFormatter::NONE, 'Europe/Rome', IntlDateFormatter::GREGORIAN, 'cccc d');
@@ -69,24 +70,29 @@ $formatter_closing = new IntlDateFormatter('it_IT', IntlDateFormatter::FULL, Int
     <?php foreach($content->servings as $serving) { ?>
 
                 <div class="block serving">
+                    <?php if(isset($serving->name)) { ?>
                     <h2 class="title is-5">
                         <span>
                             <?= $serving->name; ?>
                         </span>
                     </h2>
+                    <?php } ?>
 
                     <ol class="menu-list" role="list">
 
                     <?php
                     foreach($serving->dishes as $dish) {
                         $vegetarian = isset($dish->vegetarian) && $dish->vegetarian ? '&nbsp;<i class="fa-solid fa-leaf vegetarian"></i>' : '';
-                        $details = isset($dish->details) ? ' <span class="details">' . $dish['details'] . '</span>' : '';
+                        $details = isset($dish->details) ? ' <span class="details">' . $dish->details . '</span>' : '';
                         ?>
 
                         <li>
                             <div class="dish"><?= $dish->name ?><?= $details ?><?= $vegetarian ?><span class="leaders" aria-hidden="true"></span></div>
-                            <div class="price">€&nbsp;<span class="units">9</span>,00</div>
-                            <?php if(isset($dish->description)) { ?><div class="description"><?= $dish->description ?></div><?php } ?>
+                            <div class="price">€&nbsp;<?php
+                                list($price_units, $price_decimals) = explode('.', number_format($dish->price, 2, '.', ''));
+                                echo "<span class=\"units\">$price_units</span>,$price_decimals";
+                            ?></div>
+                            <?php if(isset($dish->description)) { ?><div class="description"><?= nl2br($dish->description) ?></div><?php } ?>
                         </li>
 
                         <?php
@@ -228,116 +234,6 @@ $formatter_closing = new IntlDateFormatter('it_IT', IntlDateFormatter::FULL, Int
 
     </section>
 </body>
-
-<style type="text/css">
-html {
-    font-size: 16px;
-    @media (min-width: 769px) {
-        font-size: 18px;
-    }
-    @media (min-width: 1024px) {
-        font-size: 22px;
-    }
-}
-h1, h2, h3, h4 {
-    font-family: 'Pfeffer Medieval regular', serif;
-}
-h1.title {
-    margin-bottom: 2.5rem !important;
-    @media (min-width: 1408px) {
-        margin-bottom: 3rem !important;
-        text-align: center;
-    }
-}
-h2.title {
-    color: #990000;
-}
-h2.title span {
-    border-bottom: solid 2px #990000;
-}
-.subtitle {
-    @media (min-width: 1408px) {
-        text-align: center;
-    }
-}
-
-.wide-columns {
-    column-gap: 3em;
-    column-rule: solid 2px #990000;
-    @media (min-width: 1408px) {
-        column-count: 2;
-    }
-}
-.wide-columns .block {
-    break-inside: avoid-column;
-}
-
-.container.thin {
-    @media (min-width: 1024px) {
-        max-width: 1024px !important;
-    }
-}
-
-ol.menu-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-ol.menu-list li {
-    margin: 0 0 0.5rem 0;
-    padding: 0;
-
-    display: grid;
-    grid-template-columns: auto max-content;
-    grid-template-rows: auto auto;
-    align-items: end;
-}
-ol.menu-list li:last-of-type {
-    margin: 0;
-}
-ol.menu-list li .dish {
-    position: relative;
-    overflow: hidden;
-
-    font-weight: bold;
-    margin-right: 6px;
-}
-ol.menu-list li .dish .vegetarian {
-    color: darkgreen;
-}
-ol.menu-list li .dish .details {
-    font-weight: normal;
-    font-style: italic;
-}
-ol.menu-list li .dish .leaders::after {
-    position: absolute;
-    padding-left: .25ch;
-    content: " . . . . . . . . . . . . . . . . . . . "
-        ". . . . . . . . . . . . . . . . . . . . . . . "
-        ". . . . . . . . . . . . . . . . . . . . . . . "
-        ". . . . . . . . . . . . . . . . . . . . . . . "
-        ". . . . . . . . . . . . . . . . . . . . . . . "
-        ". . . . . . . . . . . . . . . . . . . . . . . "
-        ". . . . . . . . . . . . . . . . . . . . . . . "
-        ". . . . . . . . . . . . . . . . . . . . . . . "
-        ". . . . . . . . . . . . . . . . . . . . . . . "
-        ". . . . . . . . . . . . . . . . . . . . . . . ";
-    text-align: right;
-}
-ol.menu-list li .price {
-    font-size: 0.75rem;
-    min-width: 4ch;
-    font-variant-numeric: tabular-nums;
-    text-align: right;
-}
-ol.menu-list li .price .units {
-    font-size: 1rem;
-    font-weight: bold;
-}
-ol.menu-list li .description {
-    font-size: 0.75rem;
-}
-</style>
 
 </html>
 

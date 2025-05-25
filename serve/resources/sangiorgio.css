@@ -1,0 +1,141 @@
+html {
+    font-size: 16px;
+    @media (min-width: 769px) {
+        font-size: 18px;
+    }
+    @media (min-width: 1024px) {
+        font-size: 22px;
+    }
+}
+h1, h2, h3, h4 {
+    font-family: 'Pfeffer Medieval regular', serif;
+}
+h1.title {
+    margin-bottom: 2.5rem !important;
+    @media (min-width: 1408px) {
+        margin-bottom: 3rem !important;
+        text-align: center;
+    }
+}
+h2.title {
+    color: #990000;
+}
+h2.title span {
+    border-bottom: solid 2px #990000;
+}
+.subtitle {
+    @media (min-width: 1408px) {
+        text-align: center;
+    }
+}
+
+.wide-columns {
+    column-gap: 3em;
+    column-rule: solid 2px #990000;
+    @media (min-width: 1408px) {
+        column-count: 2;
+    }
+}
+.wide-columns .block {
+    break-inside: avoid-column;
+}
+
+.container.thin {
+    @media (min-width: 1024px) {
+        max-width: 1024px !important;
+    }
+}
+
+ol.menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+ol.menu-list li {
+    margin: 0 0 0.5rem 0;
+    padding: 0;
+
+    display: grid;
+    grid-template-columns: auto max-content;
+    grid-template-rows: auto auto;
+    align-items: end;
+}
+ol.menu-list li:last-of-type {
+    margin: 0;
+}
+ol.menu-list li .dish {
+    position: relative;
+    overflow: hidden;
+
+    font-weight: bold;
+    margin-right: 6px;
+}
+ol.menu-list li .dish .vegetarian {
+    color: darkgreen;
+}
+ol.menu-list li .dish .details {
+    font-weight: normal;
+    font-style: italic;
+}
+ol.menu-list li .dish .leaders::after {
+    position: absolute;
+    padding-left: .25ch;
+    content: " . . . . . . . . . . . . . . . . . . . "
+        ". . . . . . . . . . . . . . . . . . . . . . . "
+        ". . . . . . . . . . . . . . . . . . . . . . . "
+        ". . . . . . . . . . . . . . . . . . . . . . . "
+        ". . . . . . . . . . . . . . . . . . . . . . . "
+        ". . . . . . . . . . . . . . . . . . . . . . . "
+        ". . . . . . . . . . . . . . . . . . . . . . . "
+        ". . . . . . . . . . . . . . . . . . . . . . . "
+        ". . . . . . . . . . . . . . . . . . . . . . . "
+        ". . . . . . . . . . . . . . . . . . . . . . . ";
+    text-align: right;
+}
+ol.menu-list li .price {
+    font-size: 0.75rem;
+    min-width: 4ch;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+}
+ol.menu-list li .price .units {
+    font-size: 1rem;
+    font-weight: bold;
+}
+ol.menu-list li .description {
+    font-size: 0.75rem;
+}
+
+table.order-table tr.serving td {
+    font-weight: bold;
+    padding-top: 1rem;
+}
+table.order-table tr.dish td {
+    vertical-align: middle;
+}
+table.order-table button.modifier {
+    font-size: 1.2em;
+    font-weight: bold;
+    padding-top: calc(.5em - 6px);
+}
+table.order-table th.price, table.order-table td.price {
+    text-align: right;
+}
+table.order-table th.count, table.order-table td.count {
+    font-weight: bold;
+    text-align: right;
+}
+table.order-table tr.total {
+    font-weight: bold;
+}
+table.order-table tr.total td {
+    padding-top: 1rem;
+    vertical-align: bottom;
+}
+table.order-table tr.total td.desc {
+    text-align: right;
+}
+table.order-table tr.total td.value {
+    font-size: 1.2em;
+    text-align: right;
+}
