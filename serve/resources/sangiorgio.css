@@ -29,6 +29,11 @@ h2.title span {
     }
 }
 
+section.fullwidth {
+    padding-left: 0;
+    padding-right: 0;
+}
+
 .wide-columns {
     column-gap: 3em;
     column-rule: solid 2px #990000;
@@ -114,7 +119,6 @@ table.order-table tr.dish td {
     vertical-align: middle;
 }
 table.order-table button.modifier {
-    font-size: 1.2em;
     font-weight: bold;
     padding-top: calc(.5em - 6px);
 }

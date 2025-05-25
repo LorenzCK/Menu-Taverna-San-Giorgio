@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
     <title>Taverna Gaita San Giorgio — Ordine online</title>
 
@@ -49,7 +49,7 @@ $formatter_closing = new IntlDateFormatter('it_IT', IntlDateFormatter::FULL, Int
 ?>
 
 <body>
-    <section class="section">
+    <section class="section fullwidth">
         <div class="container">
             <h1 class="title is-2">
                 Taverna Gaita San&nbsp;Giorgio
