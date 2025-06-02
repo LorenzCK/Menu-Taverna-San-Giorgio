@@ -35,9 +35,8 @@
     <meta property="og:image" content="https://menu.gaitasangiorgio.com/menu-taverna-san-giorgio-social-2024.jpg" />
     <meta property="og:title" content="Taverna Gaita San Giorgio — Menu" />
 
-    <script defer src="https://api.pirsch.io/pa.js"
-        id="pianjs"
-        data-code="ZJn4CAIUmKxkxVjWzrRwt68NsXziBQf9"></script>
+    <script defer src="resources/VanillaQR.min.js"></script>
+    <script defer src="https://api.pirsch.io/pa.js" id="pianjs" data-code="ZJn4CAIUmKxkxVjWzrRwt68NsXziBQf9"></script>
 </head>
 
 <?php
@@ -49,7 +48,22 @@ $formatter_closing = new IntlDateFormatter('it_IT', IntlDateFormatter::FULL, Int
 ?>
 
 <body>
-    <section class="section fullwidth">
+    <div id="qr-code-overlay" class="is-hidden">
+        <div class="close">
+            <a href="#">Chiudi&nbsp;<i class="fa-solid fa-xmark"></i></a>
+        </div>
+
+        <div id="qr-code-output" class="output">
+        </div>
+
+        <div class="instructions">
+            <p>
+                Presentare il codice alla cassa interna della Taverna per il pagamento.
+            </p>
+        </div>
+    </div>
+
+    <section class="section">
         <div class="container">
             <h1 class="title is-2">
                 Taverna Gaita San&nbsp;Giorgio
@@ -60,6 +74,11 @@ $formatter_closing = new IntlDateFormatter('it_IT', IntlDateFormatter::FULL, Int
                 La taverna è chiusa.
             </div>
 <?php } else { ?>
+
+        </div>
+    </section>
+    <section class="section fullwidth">
+        <div class="container">
 
             <div class="table-container">
                 <table class="table is-narrow is-striped is-fullwidth order-table">
@@ -84,9 +103,10 @@ $formatter_closing = new IntlDateFormatter('it_IT', IntlDateFormatter::FULL, Int
                         <?php } ?>
                     <?php } ?>
                         <tr class="total">
+                            <td></td>
                             <td colspan="2" class="desc">Totale:</td>
                             <td class="value">€&nbsp;<span>0,00</span></td>
-                            <td colspan="2"></td>
+                            <td></td>
                         </tr>
                     </tbody>
                 </table>
@@ -105,15 +125,6 @@ $formatter_closing = new IntlDateFormatter('it_IT', IntlDateFormatter::FULL, Int
                     <span class="icon"><i class="fas fa-calculator"></i></span>
                     <span>Stampa ordine</span>
                 </button>
-            </p>
-
-            <p class="has-text-centered mt-4">
-                <a href="my.bluetoothprint.scheme://https://menu.gaitasangiorgio.com/print?payload=22x2-23x2">
-                    <button class="button is-info is-large" id="print-order">
-                        <span class="icon"><i class="fas fa-calculator"></i></span>
-                        <span>Test</span>
-                    </button>
-                </a>
             </p>
 
 <?php } ?>
@@ -146,12 +157,39 @@ function recompute() {
         const count = parseInt(dish.dataset.dishCount, 10);
         const price = parseFloat(dish.dataset.dishPrice);
         total += count * price;
+
+        dish.querySelector('button.subtracter').disabled = (count <= 0); // Disable subtracter if count is 0
     });
 
     document.querySelector('.total .value span').textContent = total.toFixed(2).replace('.', ',');
 }
 
+function generatePayload() {
+    const dishes = document.querySelectorAll('.dish');
+    let payload = '';
+    dishes.forEach(dish => {
+        const count = parseInt(dish.dataset.dishCount, 10);
+        if (count > 0) {
+            if(payload != '') {
+                payload += '-';
+            }
+
+            const id = parseInt(dish.dataset.dishId, 10);
+            payload += `${id}x${count}`;
+        }
+    });
+
+    if(payload == '') {
+        alert('Nessun piatto selezionato.');
+        return null;
+    }
+
+    return payload;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    recompute();
+
     // Add +/- button event handlers
     const dishes = document.querySelectorAll('.dish');
     dishes.forEach(dish => {
@@ -177,34 +215,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add show order button handler
     document.getElementById('show-order').addEventListener('click', () => {
-        console.log('Show order button clicked');
+        const payload = generatePayload();
+        if (payload === null) {
+            return;
+        }
 
+        var qr = new VanillaQR({
+            url: "GSG" + payload,
+            size: 512,
+            colorLight: "#ffffff",
+            colorDark: "#000000",
+            toTable: false, // Use canvas
+            ecclevel: 2,
+            noBorder: false,
+            // borderSize: 4
+        });
+        const outputElement = document.getElementById('qr-code-output');
+        outputElement.innerHTML = '';
+        outputElement.appendChild(qr.domElement);
+
+        document.getElementById('qr-code-overlay').classList.remove('is-hidden');
+    });
+    document.querySelector('#qr-code-overlay .close a').addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById('qr-code-overlay').classList.add('is-hidden');
     });
 
     // Add print order button handler
     document.getElementById('print-order').addEventListener('click', () => {
-        console.log('Print order button clicked');
-
         const base = 'https://<?= $_SERVER['SERVER_NAME'] ?><?= dirname($_SERVER["REQUEST_URI"]) ?>print?payload=';
-        console.log('Base URL: ' + base);
+        // console.log('Base URL: ' + base);
 
-        const dishes = document.querySelectorAll('.dish');
-        let payload = '';
-        dishes.forEach(dish => {
-            const count = parseInt(dish.dataset.dishCount, 10);
-            if (count > 0) {
-                const id = parseInt(dish.dataset.dishId, 10);
-                payload += `${id}x${count}-`;
-            }
-        });
-
-        if(payload == '') {
-            alert('Nessun piatto selezionato.');
+        const payload = generatePayload();
+        if (payload === null) {
             return;
         }
 
         const destination = 'my.bluetoothprint.scheme://' + base + payload;
-        console.log(destination);
+        // console.log(destination);
 
         window.location = destination;
     });

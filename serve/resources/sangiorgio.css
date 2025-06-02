@@ -143,3 +143,38 @@ table.order-table tr.total td.value {
     font-size: 1.2em;
     text-align: right;
 }
+
+#qr-code-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    padding: 18px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+#qr-code-overlay .close {
+    width: 100%;
+    text-align: right;
+    margin-bottom: 18px;
+}
+#qr-code-overlay, #qr-code-overlay a {
+    color: white;
+    text-decoration: none;
+}
+#qr-code-overlay .output {
+    width: 100%;
+    flex-grow: 1;
+    align-content: center;
+}
+#qr-code-overlay .output canvas {
+    display: block;
+    width: calc(100vw - 36px);
+    height: auto;
+    margin: 0 auto;
+}
