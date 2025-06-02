@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        const destination = 'my.bluetoothprint.scheme://' + encodeURIComponent(base + payload);
+        const destination = 'my.bluetoothprint.scheme://' + base + payload;
         console.log(destination);
 
         window.location = destination;
