@@ -198,8 +198,6 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(destination);
 
         window.location = destination;
-
-        // https://menu.gaitasangiorgio.com/serve/order.php?print=true';
     });
 });
 </script>
