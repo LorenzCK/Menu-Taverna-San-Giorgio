@@ -76,10 +76,10 @@ $formatter_closing = new IntlDateFormatter('it_IT', IntlDateFormatter::FULL, Int
                         <?php foreach($serving->dishes as $dish) { ?>
                         <tr class="dish" data-dish-id="<?= $dish->id ?>" data-dish-count="0" data-dish-price="<?= number_format($dish->price, 2, '.', '') ?>">
                             <td><button class="button is-link modifier subtracter">&ndash;</button></td>
-                            <td><?= $dish->name ?></td>
-                            <td class="price">€&nbsp;<?= number_format($dish->price, 2, ',', '') ?></td>
                             <td class="count">0</td>
-                            <td><button class="button is-link modifier adder">+</button></td>
+                            <td class="name"><?= $dish->name ?></td>
+                            <td class="price">€&nbsp;<?= number_format($dish->price, 2, ',', '') ?></td>
+                            <td class="has-text-right"><button class="button is-link modifier adder">+</button></td>
                         </tr>
                         <?php } ?>
                     <?php } ?>
@@ -92,6 +92,21 @@ $formatter_closing = new IntlDateFormatter('it_IT', IntlDateFormatter::FULL, Int
                 </table>
             </div>
 
+            <p class="has-text-centered mt-4 public">
+                <button class="button is-info is-large" id="show-order">
+                    <span class="icon"><i class="fas fa-cash-register"></i></span>
+                    <span>Mostra ordine</span>
+                </button><br />
+                Clicca qui per mostrare l’ordine in cassa e procedere al pagamento.
+            </p>
+
+            <p class="has-text-centered mt-4 private is-hidden">
+                <button class="button is-info is-large" id="print-order">
+                    <span class="icon"><i class="fas fa-calculator"></i></span>
+                    <span>Stampa ordine</span>
+                </button>
+            </p>
+
 <?php } ?>
         </div>
 
@@ -100,6 +115,20 @@ $formatter_closing = new IntlDateFormatter('it_IT', IntlDateFormatter::FULL, Int
 </body>
 
 <script type="text/javascript">
+let megaSecretUnlocker = 0;
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('h1.title').addEventListener('click', () => {
+        megaSecretUnlocker++;
+        if (megaSecretUnlocker >= 8) {
+            document.querySelector('h1.title').innerHTML = 'Taverna Gaita San&nbsp;Giorgio — Gestione';
+            document.querySelectorAll('.private').forEach(el => {
+                el.classList.remove('is-hidden');
+            });
+        }
+    });
+});
+
 function recompute() {
     const dishes = document.querySelectorAll('.dish');
 
@@ -114,8 +143,8 @@ function recompute() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Add +/- button event handlers
     const dishes = document.querySelectorAll('.dish');
-
     dishes.forEach(dish => {
         dish.querySelector('button.subtracter').addEventListener('click', () => {
             const count = parseInt(dish.dataset.dishCount, 10);
@@ -135,6 +164,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
             recompute()
         });
+    });
+
+    // Add show order button handler
+    document.getElementById('show-order').addEventListener('click', () => {
+        console.log('Show order button clicked');
+
+    });
+
+    // Add print order button handler
+    document.getElementById('print-order').addEventListener('click', () => {
+        console.log('Print order button clicked');
+
+        const base = 'https://<?= $_SERVER['SERVER_NAME'] ?><?= dirname($_SERVER["REQUEST_URI"]) ?>print?payload=';
+        console.log('Base URL: ' + base);
+
+        const dishes = document.querySelectorAll('.dish');
+        let payload = '';
+        dishes.forEach(dish => {
+            const count = parseInt(dish.dataset.dishCount, 10);
+            if (count > 0) {
+                const id = parseInt(dish.dataset.dishId, 10);
+                payload += `${id}x${count}-`;
+            }
+        });
+
+        if(payload == '') {
+            alert('Nessun piatto selezionato.');
+            return;
+        }
+
+        const destination = 'my.bluetoothprint.scheme://' + encodeURIComponent(base + payload);
+        console.log(destination);
+
+        window.location = destination;
+
+        // https://menu.gaitasangiorgio.com/serve/order.php?print=true';
     });
 });
 </script>
