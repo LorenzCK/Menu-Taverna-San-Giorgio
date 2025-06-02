@@ -107,6 +107,15 @@ $formatter_closing = new IntlDateFormatter('it_IT', IntlDateFormatter::FULL, Int
                 </button>
             </p>
 
+            <p class="has-text-centered mt-4">
+                <a href="my.bluetoothprint.scheme://https://menu.gaitasangiorgio.com/print?payload=22x2-23x2">
+                    <button class="button is-info is-large" id="print-order">
+                        <span class="icon"><i class="fas fa-calculator"></i></span>
+                        <span>Test</span>
+                    </button>
+                </a>
+            </p>
+
 <?php } ?>
         </div>
 
