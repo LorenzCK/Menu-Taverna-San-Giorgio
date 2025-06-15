@@ -41,11 +41,17 @@
 </head>
 
 <?php
-$content = json_decode(file_get_contents('/data/menu-2025-primavera.json'), false);
+$content = json_decode(file_get_contents('/data/menu-2025-mercato.json'), false);
 $show_closed = DateTime::createFromFormat('Y-m-d', $content->closing)->modify('+1 day') < new DateTime();
 
 $formatter_opening = new IntlDateFormatter('it_IT', IntlDateFormatter::FULL, IntlDateFormatter::NONE, 'Europe/Rome', IntlDateFormatter::GREGORIAN, 'cccc d');
 $formatter_closing = new IntlDateFormatter('it_IT', IntlDateFormatter::FULL, IntlDateFormatter::NONE, 'Europe/Rome', IntlDateFormatter::GREGORIAN, 'cccc d\'&nbsp;\'MMMM');
+
+function formatPrice($price) : string {
+    list($price_units, $price_decimals) = explode('.', number_format($price, 2, '.', ''));
+    return "<span class=\"units\">$price_units</span>,$price_decimals";
+}
+
 ?>
 
 <body>
@@ -88,10 +94,7 @@ $formatter_closing = new IntlDateFormatter('it_IT', IntlDateFormatter::FULL, Int
 
                         <li>
                             <div class="dish"><?= $dish->name ?><?= $details ?><?= $vegetarian ?><span class="leaders" aria-hidden="true"></span></div>
-                            <div class="price">€&nbsp;<?php
-                                list($price_units, $price_decimals) = explode('.', number_format($dish->price, 2, '.', ''));
-                                echo "<span class=\"units\">$price_units</span>,$price_decimals";
-                            ?></div>
+                            <div class="price">€&nbsp;<?= formatPrice($dish->price) ?></div>
                             <?php if(isset($dish->description)) { ?><div class="description"><?= nl2br($dish->description) ?></div><?php } ?>
                         </li>
 
@@ -99,6 +102,19 @@ $formatter_closing = new IntlDateFormatter('it_IT', IntlDateFormatter::FULL, Int
                     }
                     ?>
 
+                    </ol>
+                </div>
+
+    <?php } ?>
+
+    <?php if(isset($content->coverCharge->price) && $content->coverCharge->price > 0) { ?>
+
+                <div class="block serving">
+                    <ol class="menu-list" role="list">
+                        <li>
+                            <div class="dish">Coperto<span class="leaders" aria-hidden="true"></span></div>
+                            <div class="price">€&nbsp;<?= formatPrice($content->coverCharge->price) ?></div>
+                        </li>
                     </ol>
                 </div>
 

@@ -1,6 +1,11 @@
 {
     "opening": "2025-04-24",
     "closing": "2025-04-27",
+    "coverCharge": {
+        "id": "30",
+        "name": "Coperto",
+        "price": 1.5
+    },
     "servings": [
         {
             "name": "Prima immissione",
@@ -133,14 +138,6 @@
                 {
                     "name": "Acqua naturale o frizzante (¾&nbsp;l)",
                     "price": 1
-                }
-            ]
-        },
-        {
-            "dishes": [
-                {
-                    "name": "Coperto",
-                    "price": 1.5
                 }
             ]
         }
