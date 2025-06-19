@@ -7,7 +7,7 @@
 
     <title>Taverna Gaita San Giorgio — Ordine online</title>
 
-    <link rel="stylesheet" href="fonts/pfeffermedieval.css" />
+    <link rel="stylesheet" href="fonts/pokoljaro.css" />
     <link rel="stylesheet" href="resources/bulma.min.css" />
     <link rel="stylesheet" href="resources/sangiorgio.css" />
 
@@ -83,6 +83,14 @@ $formatter_closing = new IntlDateFormatter('it_IT', IntlDateFormatter::FULL, Int
             <div class="table-container">
                 <table class="table is-narrow is-striped is-fullwidth order-table">
                     <tbody>
+                        <tr class="dish" data-dish-id="<?= $content->coverCharge->id ?>" data-dish-count="0" data-dish-price="<?= number_format($content->coverCharge->price, 2, '.', '') ?>">
+                            <td><button class="button is-link modifier subtracter">&ndash;</button></td>
+                            <td class="count">0</td>
+                            <td class="name">Numero di persone al tavolo</td>
+                            <td class="price">€&nbsp;<?= number_format($content->coverCharge->price, 2, ',', '') ?></td>
+                            <td class="has-text-right"><button class="button is-link modifier adder">+</button></td>
+                        </tr>
+
                     <?php foreach($content->servings as $serving) { ?>
                         <?php if(isset($serving->name)) { ?>
                         <tr class="serving">
@@ -112,7 +120,7 @@ $formatter_closing = new IntlDateFormatter('it_IT', IntlDateFormatter::FULL, Int
                 </table>
             </div>
 
-            <p class="has-text-centered mt-4 public">
+            <p class="has-text-centered mt-4 public is-hidden">
                 <button class="button is-info is-large" id="show-order">
                     <span class="icon"><i class="fas fa-cash-register"></i></span>
                     <span>Mostra ordine</span>

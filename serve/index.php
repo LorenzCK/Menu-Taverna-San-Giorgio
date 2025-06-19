@@ -7,7 +7,7 @@
 
     <title>Taverna Gaita San Giorgio — Menu</title>
 
-    <link rel="stylesheet" href="fonts/pfeffermedieval.css" />
+    <link rel="stylesheet" href="fonts/pokoljaro.css" />
     <link rel="stylesheet" href="resources/bulma.min.css" />
     <link rel="stylesheet" href="resources/sangiorgio.css" />
 
@@ -35,14 +35,16 @@
     <meta property="og:image" content="https://menu.gaitasangiorgio.com/menu-taverna-san-giorgio-social-2024.jpg" />
     <meta property="og:title" content="Taverna Gaita San Giorgio — Menu" />
 
-    <script defer src="https://api.pirsch.io/pa.js"
-        id="pianjs"
-        data-code="ZJn4CAIUmKxkxVjWzrRwt68NsXziBQf9"></script>
+    <script defer src="https://api.pirsch.io/pa.js" id="pianjs" data-code="ZJn4CAIUmKxkxVjWzrRwt68NsXziBQf9"></script>
 </head>
 
 <?php
 $content = json_decode(file_get_contents('/data/menu-2025-mercato.json'), false);
-$show_closed = DateTime::createFromFormat('Y-m-d', $content->closing)->modify('+1 day') < new DateTime();
+
+$date_opening = DateTime::createFromFormat('Y-m-d', $content->opening);
+$date_closing = DateTime::createFromFormat('Y-m-d', $content->closing);
+
+$show_closed = (clone $date_closing)->modify('+1 day') < new DateTime();
 
 $formatter_opening = new IntlDateFormatter('it_IT', IntlDateFormatter::FULL, IntlDateFormatter::NONE, 'Europe/Rome', IntlDateFormatter::GREGORIAN, 'cccc d');
 $formatter_closing = new IntlDateFormatter('it_IT', IntlDateFormatter::FULL, IntlDateFormatter::NONE, 'Europe/Rome', IntlDateFormatter::GREGORIAN, 'cccc d\'&nbsp;\'MMMM');
@@ -51,7 +53,6 @@ function formatPrice($price) : string {
     list($price_units, $price_decimals) = explode('.', number_format($price, 2, '.', ''));
     return "<span class=\"units\">$price_units</span>,$price_decimals";
 }
-
 ?>
 
 <body>
@@ -65,7 +66,7 @@ function formatPrice($price) : string {
 <?php if($show_closed) { ?>
                 La taverna è chiusa.
 <?php } else { ?>
-                Aperti da <?= $formatter_opening->format(DateTime::createFromFormat('Y-m-d', $content->opening)) ?> a <?= $formatter_closing->format(DateTime::createFromFormat('Y-m-d', $content->closing)) ?>.
+                Aperti da <?= $formatter_opening->format($date_opening) ?> a <?= $formatter_closing->format($date_closing) ?>.
 <?php } ?>
             </div>
 
@@ -124,6 +125,19 @@ function formatPrice($price) : string {
 
             </div>
 
+<?php if(false && new DateTime() > $date_opening && !$show_closed) { ?>
+
+            <p class="has-text-centered mt-4">
+                <a class="button is-info" href="/ordina">
+                    <span class="icon is-small">
+                        <i class="fas fa-solid fa-pen"></i>
+                    </span>
+                    <span>Compila l’ordine online</span>
+                </a>
+            </p>
+
+<?php } ?>
+
         </div>
 
     </section>
@@ -150,6 +164,13 @@ function formatPrice($price) : string {
                                 <i class="fas fa-solid fa-phone"></i>
                             </span>
                             <span>Chiamaci per prenotare</span>
+                        </a>
+                        oppure
+                        <a class="button is-info" href="https://reservation.carbonaraapp.com/Italia/Bevagna/Taverna-San-Giorgio">
+                            <span class="icon is-small">
+                                <i class="fas fa-solid fa-globe"></i>
+                            </span>
+                            <span>Prenota online</span>
                         </a>
                         <?php } ?>
                     </p>
