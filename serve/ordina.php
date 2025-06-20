@@ -120,7 +120,7 @@ $formatter_closing = new IntlDateFormatter('it_IT', IntlDateFormatter::FULL, Int
                 </table>
             </div>
 
-            <p class="has-text-centered mt-4 public is-hidden">
+            <p class="has-text-centered mt-4 public">
                 <button class="button is-info is-large" id="show-order">
                     <span class="icon"><i class="fas fa-cash-register"></i></span>
                     <span>Mostra ordine</span>
@@ -157,19 +157,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+let latestTotal = 0.0;
+
 function recompute() {
     const dishes = document.querySelectorAll('.dish');
 
-    let total = 0.0;
+    latestTotal = 0.0;
     dishes.forEach(dish => {
         const count = parseInt(dish.dataset.dishCount, 10);
         const price = parseFloat(dish.dataset.dishPrice);
-        total += count * price;
+        latestTotal += count * price;
 
         dish.querySelector('button.subtracter').disabled = (count <= 0); // Disable subtracter if count is 0
     });
 
-    document.querySelector('.total .value span').textContent = total.toFixed(2).replace('.', ',');
+    document.querySelector('.total .value span').textContent = latestTotal.toFixed(2).replace('.', ',');
 }
 
 function generatePayload() {
@@ -251,7 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add print order button handler
     document.getElementById('print-order').addEventListener('click', () => {
-        const base = 'https://<?= $_SERVER['SERVER_NAME'] ?><?= dirname($_SERVER["REQUEST_URI"]) ?>print?payload=';
+        const base = 'https://<?= $_SERVER['SERVER_NAME'] ?><?= dirname($_SERVER["REQUEST_URI"]) ?>print?total=' + latestTotal + '&payload=';
         // console.log('Base URL: ' + base);
 
         const payload = generatePayload();

@@ -11,9 +11,9 @@ h1, h2, h3, h4 {
     font-family: 'pokoljaroregular', serif;
 }
 h1.title {
-    margin-bottom: 2.5rem !important;
+    margin-bottom: 1rem !important;
     @media (min-width: 1408px) {
-        margin-bottom: 3rem !important;
+        margin-bottom: 1.5rem !important;
         text-align: center;
     }
 }
@@ -157,6 +157,7 @@ table.order-table tr.total td.value {
     z-index: 1000;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 #qr-code-overlay .close {
     width: 100%;
@@ -174,7 +175,8 @@ table.order-table tr.total td.value {
 }
 #qr-code-overlay .output canvas {
     display: block;
-    width: calc(100vw - 36px);
-    height: auto;
+    width: calc(min(100%, 100vh) - 72px);
+    height: calc(min(100%, 100vw) - 72px);
     margin: 0 auto;
+    aspect-ratio: 1 / 1;
 }

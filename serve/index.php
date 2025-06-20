@@ -125,7 +125,7 @@ function formatPrice($price) : string {
 
             </div>
 
-<?php if(false && new DateTime() > $date_opening && !$show_closed) { ?>
+<?php if(new DateTime() > $date_opening && !$show_closed) { ?>
 
             <p class="has-text-centered mt-4">
                 <a class="button is-info" href="/ordina">
@@ -165,12 +165,12 @@ function formatPrice($price) : string {
                             </span>
                             <span>Chiamaci per prenotare</span>
                         </a>
-                        oppure
+
                         <a class="button is-info" href="https://reservation.carbonaraapp.com/Italia/Bevagna/Taverna-San-Giorgio">
                             <span class="icon is-small">
                                 <i class="fas fa-solid fa-globe"></i>
                             </span>
-                            <span>Prenota online</span>
+                            <span>Prenota un tavolo online</span>
                         </a>
                         <?php } ?>
                     </p>

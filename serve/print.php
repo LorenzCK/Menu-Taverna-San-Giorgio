@@ -6,6 +6,11 @@ if(empty($payload)) {
     die();
 }
 
+$total = null;
+if(!empty($_GET['total']) && is_numeric($_GET['total'])) {
+    $total = number_format(floatval($_GET['total']), 1, ',');
+}
+
 // Create associative array to hold dish IDs and their counts
 /*$qr_code_payload = [];
 $dishes = explode('-', $payload);
@@ -51,6 +56,15 @@ $output[] = [
     'size' => 60,
     'align' => 1,
 ];
+if($total !== null) {}
+    $output[] = [
+        'type' => 0,
+        'content' => 'Totale: €' . $total,
+        'bold' => 1,
+        'align' => 1,
+        'format' => 0,
+    ];
+}
 $output[] = [
     'type' => 0,
     'content' => 'Presentare il codice alla cassa per il pagamento.',
