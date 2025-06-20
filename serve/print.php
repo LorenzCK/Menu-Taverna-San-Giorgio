@@ -56,7 +56,7 @@ $output[] = [
     'size' => 60,
     'align' => 1,
 ];
-if($total !== null) {}
+if($total !== null) {
     $output[] = [
         'type' => 0,
         'content' => 'Totale: €' . $total,
