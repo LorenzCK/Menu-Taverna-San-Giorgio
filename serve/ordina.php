@@ -253,7 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add print order button handler
     document.getElementById('print-order').addEventListener('click', () => {
-        const base = 'https://<?= $_SERVER['SERVER_NAME'] ?><?= dirname($_SERVER["REQUEST_URI"]) ?>print?total=' + latestTotal + '&payload=';
+        const base = 'https://<?= $_SERVER['SERVER_NAME'] ?><?= dirname($_SERVER["REQUEST_URI"]) ?>print?total=' + latestTotal.toFixed(2).replace(',', '.') + '&payload=';
         // console.log('Base URL: ' + base);
 
         const payload = generatePayload();

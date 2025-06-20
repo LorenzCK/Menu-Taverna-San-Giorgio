@@ -8,7 +8,7 @@ if(empty($payload)) {
 
 $total = null;
 if(!empty($_GET['total']) && is_numeric($_GET['total'])) {
-    $total = number_format(floatval($_GET['total']), 1, ',');
+    $total = number_format(floatval($_GET['total']), 1, ',', '.');
 }
 
 // Create associative array to hold dish IDs and their counts
