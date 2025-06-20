@@ -152,7 +152,8 @@ table.order-table tr.total td.value {
     bottom: 0;
     width: 100vw;
     height: 100vh;
-    background: black;
+    background: white;
+    color: black;
     padding: 18px;
     z-index: 1000;
     display: flex;
@@ -165,7 +166,7 @@ table.order-table tr.total td.value {
     margin-bottom: 18px;
 }
 #qr-code-overlay, #qr-code-overlay a {
-    color: white;
+    color: black;
     text-decoration: none;
 }
 #qr-code-overlay .output {

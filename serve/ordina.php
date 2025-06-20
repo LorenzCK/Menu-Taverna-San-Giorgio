@@ -135,6 +135,13 @@ $formatter_closing = new IntlDateFormatter('it_IT', IntlDateFormatter::FULL, Int
                 </button>
             </p>
 
+            <p class="has-text-centered mt-4 private is-hidden">
+                <button class="button is-info is-large" id="reset-order">
+                    <span class="icon"><i class="fas fa-rotate"></i></span>
+                    <span>Reimposta a 0</span>
+                </button>
+            </p>
+
 <?php } ?>
         </div>
 
@@ -237,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
             colorDark: "#000000",
             toTable: false, // Use canvas
             ecclevel: 2,
-            noBorder: false,
+            noBorder: true,
             // borderSize: 4
         });
         const outputElement = document.getElementById('qr-code-output');
@@ -265,6 +272,16 @@ document.addEventListener('DOMContentLoaded', () => {
         // console.log(destination);
 
         window.location = destination;
+    });
+
+    document.getElementById('reset-order').addEventListener('click', () => {
+        const dishes = document.querySelectorAll('.dish');
+        dishes.forEach(dish => {
+            dish.dataset.dishCount = 0;
+            dish.querySelector('.count').textContent = 0;
+        });
+
+        recompute();
     });
 });
 </script>
