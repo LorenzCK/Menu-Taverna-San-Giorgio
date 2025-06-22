@@ -63,7 +63,7 @@ $formatter_closing = new IntlDateFormatter('it_IT', IntlDateFormatter::FULL, Int
         </div>
     </div>
 
-    <section class="section">
+    <section class="section pb-2">
         <div class="container">
             <h1 class="title is-2">
                 Taverna Gaita San&nbsp;Giorgio
@@ -77,10 +77,12 @@ $formatter_closing = new IntlDateFormatter('it_IT', IntlDateFormatter::FULL, Int
 
         </div>
     </section>
-    <section class="section fullwidth">
+    <section class="section fullwidth pt-2">
         <div class="container">
+            <p>Compila la tua comanda e presenta il QR&nbsp;code alla cassa interna della Taverna per il pagamento.</p>
+            <p>Se ti servono altre informazioni, <a href="/">consulta il menu completo</a>.</p>
 
-            <div class="table-container">
+            <div class="table-container mt-5">
                 <table class="table is-narrow is-striped is-fullwidth order-table">
                     <tbody>
                         <tr class="dish" data-dish-id="<?= $content->coverCharge->id ?>" data-dish-count="0" data-dish-price="<?= number_format($content->coverCharge->price, 2, '.', '') ?>">
@@ -104,7 +106,12 @@ $formatter_closing = new IntlDateFormatter('it_IT', IntlDateFormatter::FULL, Int
                         <tr class="dish" data-dish-id="<?= $dish->id ?>" data-dish-count="0" data-dish-price="<?= number_format($dish->price, 2, '.', '') ?>">
                             <td><button class="button is-link modifier subtracter">&ndash;</button></td>
                             <td class="count">0</td>
-                            <td class="name"><?= $dish->name ?></td>
+                            <td class="name">
+                                <?= $dish->name ?>
+                                <?php if(isset($dish->details)) { ?>
+                                    <span class="details is-italic is-size-7">—&nbsp;<?= $dish->details ?></span>
+                                <?php } ?>
+                            </td>
                             <td class="price">€&nbsp;<?= number_format($dish->price, 2, ',', '') ?></td>
                             <td class="has-text-right"><button class="button is-link modifier adder">+</button></td>
                         </tr>

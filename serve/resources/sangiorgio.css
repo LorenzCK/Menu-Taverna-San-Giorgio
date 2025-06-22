@@ -79,6 +79,7 @@ ol.menu-list li .dish .vegetarian {
     color: darkgreen;
 }
 ol.menu-list li .dish .details {
+    font-size: 0.75rem;
     font-weight: normal;
     font-style: italic;
 }
