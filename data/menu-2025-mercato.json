@@ -146,6 +146,12 @@
                     "price": 6
                 },
                 {
+                    "id": 38,
+                    "name": "Nucato",
+                    "description": "Croccante di miele, noci, mandorle e spezie.",
+                    "price": 5
+                },
+                {
                     "id": 19,
                     "name": "Ippocrasso al bicchiere",
                     "description": "Vino dolce e speziato, su ricetta medievale. Buono contro ogni malanno.",
