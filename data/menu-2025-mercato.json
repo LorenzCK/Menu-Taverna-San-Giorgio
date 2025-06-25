@@ -227,24 +227,6 @@
                     "price": 12
                 },
                 {
-                    "id": 32,
-                    "name": "Le Ripaie IGT 2023",
-                    "details": "Tenute Baldo",
-                    "price": 12
-                },
-                {
-                    "id": 33,
-                    "name": "Anime Umbra 2023",
-                    "details": "Arnaldo Caprai",
-                    "price": 12
-                },
-                {
-                    "id": 34,
-                    "name": "Montefalco Rosso DOC 2022",
-                    "details": "Colleallodole",
-                    "price": 20
-                },
-                {
                     "id": 35,
                     "name": "Preda del Falco DOCG 2019",
                     "details": "Tenute Baldo",
@@ -261,6 +243,12 @@
                     "name": "Sagrantino DOCG 2019",
                     "details": "Moretti Omero",
                     "price": 35
+                },
+                {
+                    "id": 39,
+                    "name": "Montefalco Rosso DOC 2020",
+                    "details": "Terre de’ Nappi",
+                    "price": 13
                 }
             ]
         }
