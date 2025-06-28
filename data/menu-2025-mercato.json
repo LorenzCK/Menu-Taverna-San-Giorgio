@@ -221,10 +221,10 @@
                     "price": 13
                 },
                 {
-                    "id": 31,
-                    "name": "Clarignano DOC 2022",
-                    "details": "Colle Ciocco",
-                    "price": 12
+                    "id": 39,
+                    "name": "Montefalco Rosso DOC 2020",
+                    "details": "Terre de’ Nappi",
+                    "price": 13
                 },
                 {
                     "id": 35,
@@ -243,12 +243,6 @@
                     "name": "Sagrantino DOCG 2019",
                     "details": "Moretti Omero",
                     "price": 35
-                },
-                {
-                    "id": 39,
-                    "name": "Montefalco Rosso DOC 2020",
-                    "details": "Terre de’ Nappi",
-                    "price": 13
                 }
             ]
         }
