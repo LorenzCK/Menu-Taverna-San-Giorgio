@@ -37,6 +37,23 @@
 
     <script defer src="resources/VanillaQR.min.js"></script>
     <script defer src="https://api.pirsch.io/pa.js" id="pianjs" data-code="ZJn4CAIUmKxkxVjWzrRwt68NsXziBQf9"></script>
+
+    <meta name="color-scheme" content="only light">
+    <style>
+    /* Firefox */
+    @media (prefers-color-scheme: dark) {
+        :root {
+            color-scheme: light;
+        }
+    }
+
+    /* Chrome */
+    @media (forced-colors: active) {
+        :root {
+            color-scheme: light;
+        }
+    }
+    </style>
 </head>
 
 <?php
