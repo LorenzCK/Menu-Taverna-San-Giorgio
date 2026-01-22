@@ -18,15 +18,15 @@ services:
     - "traefik.enable=true"
     - "traefik.docker.network=web"
 
-    - "traefik.http.middlewares.menugaita-redirecthttps.redirectscheme.scheme=https"
-    - "traefik.http.middlewares.menugaita-redirecthttps.redirectscheme.permanent=true"
-
     - "traefik.http.routers.menugaita-secure.rule=Host(`menu.gaitasangiorgio.com`)"
     - "traefik.http.routers.menugaita-secure.entrypoints=websecure"
 
     - "traefik.http.routers.menugaita-insecure.rule=Host(`menu.gaitasangiorgio.com`)"
     - "traefik.http.routers.menugaita-insecure.entrypoints=web"
-    - "traefik.http.routers.menugaita-insecure.middlewares=redirecthttps"
+    - "traefik.http.routers.menugaita-insecure.middlewares=menugaita-redirecthttps"
+
+    - "traefik.http.middlewares.menugaita-redirecthttps.redirectscheme.scheme=https"
+    - "traefik.http.middlewares.menugaita-redirecthttps.redirectscheme.permanent=true"
     restart: unless-stopped
     logging:
       driver: "local"
