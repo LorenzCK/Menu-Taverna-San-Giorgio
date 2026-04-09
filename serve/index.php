@@ -7,7 +7,7 @@
 
     <title>Taverna Gaita San Giorgio — Menu</title>
 
-    <link rel="stylesheet" href="fonts/pfeffermedieval.css" />
+    <link rel="stylesheet" href="fonts/pokoljaro.css" />
     <link rel="stylesheet" href="resources/bulma.min.css" />
     <link rel="stylesheet" href="resources/sangiorgio.css" />
 
@@ -35,19 +35,19 @@
     <meta property="og:image" content="https://menu.gaitasangiorgio.com/menu-taverna-san-giorgio-social-2024.jpg" />
     <meta property="og:title" content="Taverna Gaita San Giorgio — Menu" />
 
-    <script defer src="https://api.pirsch.io/pa.js"
-        id="pianjs"
-        data-code="ZJn4CAIUmKxkxVjWzrRwt68NsXziBQf9"></script>
+    <script defer src="https://api.pirsch.io/pa.js" id="pianjs" data-code="ZJn4CAIUmKxkxVjWzrRwt68NsXziBQf9"></script>
 </head>
 
 <?php
 $content = json_decode(file_get_contents('/data/menu-2026-primavera.json'), false);
+$date_opening = DateTime::createFromFormat('Y-m-d', $content->opening);
+$date_closing = DateTime::createFromFormat('Y-m-d', $content->closing);
 
 // Showing closed if closing date is in the past by 1 day
-$show_closed = DateTime::createFromFormat('Y-m-d', $content->closing)->modify('+1 day') < new DateTime();
+$show_closed = (clone $date_closing)->modify('+1 day') < new DateTime();
 
 // Showing future opening if opening date is in the future
-$future_opening = DateTime::createFromFormat('Y-m-d', $content->opening) >= new DateTime();
+$future_opening = $date_opening >= new DateTime();
 
 $formatter_opening = new IntlDateFormatter('it_IT', IntlDateFormatter::FULL, IntlDateFormatter::NONE, 'Europe/Rome', IntlDateFormatter::GREGORIAN, 'cccc d');
 $formatter_closing = new IntlDateFormatter('it_IT', IntlDateFormatter::FULL, IntlDateFormatter::NONE, 'Europe/Rome', IntlDateFormatter::GREGORIAN, 'cccc d\'&nbsp;\'MMMM YYYY');
@@ -56,7 +56,6 @@ function formatPrice($price) : string {
     list($price_units, $price_decimals) = explode('.', number_format($price, 2, '.', ''));
     return "<span class=\"units\">$price_units</span>,$price_decimals";
 }
-
 ?>
 
 <body>
@@ -71,64 +70,87 @@ function formatPrice($price) : string {
                 <div>La taverna è chiusa.</div>
 <?php } ?>
 <?php if(!$show_closed || $future_opening) { ?>
-                <div>Siamo aperti da <?= $formatter_opening->format(DateTime::createFromFormat('Y-m-d', $content->opening)) ?> a <?= $formatter_closing->format(DateTime::createFromFormat('Y-m-d', $content->closing)) ?>.</div>
+                <div>Siamo aperti da <?= $formatter_opening->format($date_opening) ?> a <?= $formatter_closing->format($date_closing) ?>.</div>
 <?php } ?>
             </div>
 
-<?php if(!$show_closed && (!isset($content->hideMenu) || !$content->hideMenu)) { ?>
+<?php if(!$show_closed) { ?>
+
+    <?php if(isset($content->hideMenu) && $content->hideMenu) { ?>
+
+            <div class="my-6">
+                <p class="is-italic has-text-centered">Menu presto disponibile!</p>
+            </div>
+
+    <?php } else { ?>
 
             <div class="wide-columns">
 
-    <?php foreach($content->servings as $serving) { ?>
+        <?php foreach($content->servings as $serving) { ?>
 
-                <div class="block serving">
-                    <?php if(isset($serving->name)) { ?>
-                    <h2 class="title is-5">
-                        <span>
-                            <?= $serving->name; ?>
-                        </span>
-                    </h2>
-                    <?php } ?>
+                    <div class="block serving">
+                        <?php if(isset($serving->name)) { ?>
+                        <h2 class="title is-5">
+                            <span>
+                                <?= $serving->name; ?>
+                            </span>
+                        </h2>
+                        <?php } ?>
 
-                    <ol class="menu-list" role="list">
-
-                    <?php
-                    foreach($serving->dishes as $dish) {
-                        $vegetarian = isset($dish->vegetarian) && $dish->vegetarian ? '&nbsp;<i class="fa-solid fa-leaf vegetarian"></i>' : '';
-                        $details = isset($dish->details) ? ' <span class="details">' . $dish->details . '</span>' : '';
-                        ?>
-
-                        <li>
-                            <div class="dish"><?= $dish->name ?><?= $details ?><?= $vegetarian ?><span class="leaders" aria-hidden="true"></span></div>
-                            <div class="price">€&nbsp;<?= formatPrice($dish->price) ?></div>
-                            <?php if(isset($dish->description)) { ?><div class="description"><?= nl2br($dish->description) ?></div><?php } ?>
-                        </li>
+                        <ol class="menu-list" role="list">
 
                         <?php
-                    }
-                    ?>
+                        foreach($serving->dishes as $dish) {
+                            $vegetarian = isset($dish->vegetarian) && $dish->vegetarian ? '&nbsp;<i class="fa-solid fa-leaf vegetarian"></i>' : '';
+                            $details = isset($dish->details) ? ' <span class="details">' . $dish->details . '</span>' : '';
+                            ?>
 
-                    </ol>
-                </div>
+                            <li>
+                                <div class="dish"><?= $dish->name ?><?= $details ?><?= $vegetarian ?><span class="leaders" aria-hidden="true"></span></div>
+                                <div class="price">€&nbsp;<?= formatPrice($dish->price) ?></div>
+                                <?php if(isset($dish->description)) { ?><div class="description"><?= nl2br($dish->description) ?></div><?php } ?>
+                            </li>
 
-    <?php } ?>
+                            <?php
+                        }
+                        ?>
 
-    <?php if(isset($content->coverCharge->price) && $content->coverCharge->price > 0) { ?>
+                        </ol>
+                    </div>
 
-                <div class="block serving">
-                    <ol class="menu-list" role="list">
-                        <li>
-                            <div class="dish">Coperto<span class="leaders" aria-hidden="true"></span></div>
-                            <div class="price">€&nbsp;<?= formatPrice($content->coverCharge->price) ?></div>
-                        </li>
-                    </ol>
-                </div>
+        <?php } ?>
+
+        <?php if(isset($content->coverCharge->price) && $content->coverCharge->price > 0) { ?>
+
+                    <div class="block serving">
+                        <ol class="menu-list" role="list">
+                            <li>
+                                <div class="dish">Coperto<span class="leaders" aria-hidden="true"></span></div>
+                                <div class="price">€&nbsp;<?= formatPrice($content->coverCharge->price) ?></div>
+                            </li>
+                        </ol>
+                    </div>
+
+        <?php } ?>
 
     <?php } ?>
 
 <?php } ?>
 
             </div>
+
+<?php if(new DateTime() > $date_opening && !$show_closed) { ?>
+
+            <p class="has-text-centered mt-4">
+                <a class="button is-info" href="/ordina">
+                    <span class="icon is-small">
+                        <i class="fas fa-solid fa-pen"></i>
+                    </span>
+                    <span>Compila l’ordine online</span>
+                </a>
+            </p>
+
+<?php } ?>
 
         </div>
 
@@ -143,14 +165,13 @@ function formatPrice($price) : string {
                     <h2 class="title is-3">Aperture e prenotazioni</h2>
 
                     <p class="has-text-centered mt-4">
-                        <?php if($show_closed) { ?>
                         <a class="button is-info" href="mailto:info@gaitasangiorgio.com">
                             <span class="icon is-small">
                                 <i class="fas fa-solid fa-envelope"></i>
                             </span>
                             <span>Scrivici</span>
                         </a>
-                        <?php } else { ?>
+                        <?php if(!$show_closed || $future_opening) { ?>
                         <a class="button is-info" href="tel:3409320270">
                             <span class="icon is-small">
                                 <i class="fas fa-solid fa-phone"></i>

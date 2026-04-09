@@ -146,6 +146,12 @@
                     "price": 6
                 },
                 {
+                    "id": 38,
+                    "name": "Nucato",
+                    "description": "Croccante di miele, noci, mandorle e spezie.",
+                    "price": 5
+                },
+                {
                     "id": 19,
                     "name": "Ippocrasso al bicchiere",
                     "description": "Vino dolce e speziato, su ricetta medievale. Buono contro ogni malanno.",
@@ -202,6 +208,41 @@
                     "id": 28,
                     "name": "Acqua frizzante (¾&nbsp;l)",
                     "price": 1
+                }
+            ]
+        },
+        {
+            "name": "Vino in bottiglia",
+            "dishes": [
+                {
+                    "id": 30,
+                    "name": "Bianco del Pilone 2023",
+                    "details": "Terre de’ Nappi",
+                    "price": 13
+                },
+                {
+                    "id": 39,
+                    "name": "Montefalco Rosso DOC 2020",
+                    "details": "Terre de’ Nappi",
+                    "price": 13
+                },
+                {
+                    "id": 35,
+                    "name": "Preda del Falco DOCG 2019",
+                    "details": "Tenute Baldo",
+                    "price": 30
+                },
+                {
+                    "id": 36,
+                    "name": "Sagrantino DOCG 2017",
+                    "details": "Terre de’ Nappi",
+                    "price": 32
+                },
+                {
+                    "id": 37,
+                    "name": "Sagrantino DOCG 2019",
+                    "details": "Moretti Omero",
+                    "price": 35
                 }
             ]
         }

@@ -8,12 +8,12 @@ html {
     }
 }
 h1, h2, h3, h4 {
-    font-family: 'Pfeffer Medieval regular', serif;
+    font-family: 'pokoljaroregular', serif;
 }
 h1.title {
-    margin-bottom: 2.5rem !important;
+    margin-bottom: 1rem !important;
     @media (min-width: 1408px) {
-        margin-bottom: 3rem !important;
+        margin-bottom: 1.5rem !important;
         text-align: center;
     }
 }
@@ -27,6 +27,11 @@ h2.title span {
     @media (min-width: 1408px) {
         text-align: center;
     }
+}
+
+section.fullwidth {
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .wide-columns {
@@ -74,6 +79,7 @@ ol.menu-list li .dish .vegetarian {
     color: darkgreen;
 }
 ol.menu-list li .dish .details {
+    font-size: 0.75rem;
     font-weight: normal;
     font-style: italic;
 }
@@ -114,7 +120,6 @@ table.order-table tr.dish td {
     vertical-align: middle;
 }
 table.order-table button.modifier {
-    font-size: 1.2em;
     font-weight: bold;
     padding-top: calc(.5em - 6px);
 }
@@ -138,4 +143,42 @@ table.order-table tr.total td.desc {
 table.order-table tr.total td.value {
     font-size: 1.2em;
     text-align: right;
+}
+
+#qr-code-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    color: black;
+    padding: 18px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+#qr-code-overlay .close {
+    width: 100%;
+    text-align: right;
+    margin-bottom: 18px;
+}
+#qr-code-overlay, #qr-code-overlay a {
+    color: black;
+    text-decoration: none;
+}
+#qr-code-overlay .output {
+    width: 100%;
+    flex-grow: 1;
+    align-content: center;
+}
+#qr-code-overlay .output canvas {
+    display: block;
+    width: calc(min(100%, 100vh) - 72px);
+    height: calc(min(100%, 100vw) - 72px);
+    margin: 0 auto;
+    aspect-ratio: 1 / 1;
 }
