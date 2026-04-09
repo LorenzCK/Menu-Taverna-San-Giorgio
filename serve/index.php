@@ -41,11 +41,16 @@
 </head>
 
 <?php
-$content = json_decode(file_get_contents('/data/menu-2025-mercato.json'), false);
+$content = json_decode(file_get_contents('/data/menu-2026-primavera.json'), false);
+
+// Showing closed if closing date is in the past by 1 day
 $show_closed = DateTime::createFromFormat('Y-m-d', $content->closing)->modify('+1 day') < new DateTime();
 
+// Showing future opening if opening date is in the future
+$future_opening = DateTime::createFromFormat('Y-m-d', $content->opening) >= new DateTime();
+
 $formatter_opening = new IntlDateFormatter('it_IT', IntlDateFormatter::FULL, IntlDateFormatter::NONE, 'Europe/Rome', IntlDateFormatter::GREGORIAN, 'cccc d');
-$formatter_closing = new IntlDateFormatter('it_IT', IntlDateFormatter::FULL, IntlDateFormatter::NONE, 'Europe/Rome', IntlDateFormatter::GREGORIAN, 'cccc d\'&nbsp;\'MMMM');
+$formatter_closing = new IntlDateFormatter('it_IT', IntlDateFormatter::FULL, IntlDateFormatter::NONE, 'Europe/Rome', IntlDateFormatter::GREGORIAN, 'cccc d\'&nbsp;\'MMMM YYYY');
 
 function formatPrice($price) : string {
     list($price_units, $price_decimals) = explode('.', number_format($price, 2, '.', ''));
@@ -63,13 +68,14 @@ function formatPrice($price) : string {
 
             <div class="subtitle is-6">
 <?php if($show_closed) { ?>
-                La taverna è chiusa.
-<?php } else { ?>
-                Aperti da <?= $formatter_opening->format(DateTime::createFromFormat('Y-m-d', $content->opening)) ?> a <?= $formatter_closing->format(DateTime::createFromFormat('Y-m-d', $content->closing)) ?>.
+                <div>La taverna è chiusa.</div>
+<?php } ?>
+<?php if(!$show_closed || $future_opening) { ?>
+                <div>Siamo aperti da <?= $formatter_opening->format(DateTime::createFromFormat('Y-m-d', $content->opening)) ?> a <?= $formatter_closing->format(DateTime::createFromFormat('Y-m-d', $content->closing)) ?>.</div>
 <?php } ?>
             </div>
 
-<?php if(!$show_closed) { ?>
+<?php if(!$show_closed && (!isset($content->hideMenu) || !$content->hideMenu)) { ?>
 
             <div class="wide-columns">
 
@@ -164,58 +170,23 @@ function formatPrice($price) : string {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Giovedì 19&nbsp;giugno</td>
+                                <td>Giovedì 30&nbsp;aprile</td>
                                 <td>—</td>
                                 <td>19:30</td>
                             </tr>
                             <tr>
-                                <td>Venerdì 20&nbsp;giugno</td>
-                                <td>—</td>
-                                <td>19:30</td>
-                            </tr>
-                            <tr>
-                                <td>Sabato 21&nbsp;giugno</td>
+                                <td>Venerdì 1°&nbsp;maggio</td>
                                 <td>12:30</td>
                                 <td>19:30</td>
                             </tr>
                             <tr>
-                                <td>Domenica 22&nbsp;giugno</td>
+                                <td>Sabato 2&nbsp;maggio</td>
                                 <td>12:30</td>
                                 <td>19:30</td>
                             </tr>
                             <tr>
-                                <td>Lunedì 23&nbsp;giugno</td>
+                                <td>Domenica 3&nbsp;maggio</td>
                                 <td>—</td>
-                                <td>19:30</td>
-                            </tr>
-                            <tr>
-                                <td>Martedì 24&nbsp;giugno</td>
-                                <td>—</td>
-                                <td>19:30</td>
-                            </tr>
-                            <tr>
-                                <td>Mercoledì 25&nbsp;giugno</td>
-                                <td>—</td>
-                                <td>19:30</td>
-                            </tr>
-                            <tr>
-                                <td>Giovedì 26&nbsp;giugno</td>
-                                <td>—</td>
-                                <td>19:30</td>
-                            </tr>
-                            <tr>
-                                <td>Venerdì 27&nbsp;giugno</td>
-                                <td>—</td>
-                                <td>19:30</td>
-                            </tr>
-                            <tr>
-                                <td>Sabato 28&nbsp;giugno</td>
-                                <td>12:30</td>
-                                <td>19:30</td>
-                            </tr>
-                            <tr>
-                                <td>Domenica 29&nbsp;giugno</td>
-                                <td>12:30</td>
                                 <td>19:30</td>
                             </tr>
                         </tbody>
