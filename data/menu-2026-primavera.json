@@ -1,7 +1,7 @@
 {
     "opening": "2026-04-30",
     "closing": "2026-05-03",
-    "hideMenu": true,
+    "hideMenu": false,
     "coverCharge": {
         "name": "Coperto",
         "price": 1.5
@@ -12,18 +12,22 @@
             "dishes": [
                 {
                     "name": "Antipasto de lo novo Console",
-                    "description": "Salame, capocollo, formaggio, salsiccia secca, schiacciata al rosmarino e torta al testo.",
+                    "description": "Salame, capocollo, formaggio, salsiccia secca umbra con torta al testo e schiacciata al rosmarino.",
                     "price": 10
                 },
                 {
+                    "name": "Antipasto de lo novo Console +&nbsp;coppa umbra",
+                    "price": 12
+                },
+                {
                     "name": "Crostoni belli et boni",
-                    "description": "Bruschette con: fagioli cannellini e zenzero; spuma di baccalà mantecato con menta e spezie; zucchine marinate con aceto di mele, pepe rosa e capperi; miscela di funghi e porcini.\nOpzione vegana con bruschetta all’olio fiorito (olio aromatizzato alle erbe) al posto del baccalà.",
+                    "description": "Bruschette con: fagioli cannellini e zenzero; cicoria ripassata con fetta di pecorino; asparagi con fetta di pancetta croccate; mix di funghi porcini.\nOpzione vegetariana e vegana.",
                     "price": 8,
                     "vegetarian": true
                 },
                 {
-                    "name": "Patè di fegatini umbro con dadini di pane",
-                    "description_off": "Barbozza cotta in padella con salvia e aceto servita con torta al testo.",
+                    "name": "Patè umbro di fegatini",
+                    "description": "Patè di fegatini di pollo con aceto, vino, carota, sedano, cipolla, pasta d’acciughe, capperi, sottaceti e un pizzico di salsiccia, alloro, rosmarino e salvia.",
                     "price": 6
                 }
             ]
@@ -33,17 +37,23 @@
             "dishes": [
                 {
                     "name": "Strangozzi del beccaio",
-                    "description": "Strangozzi, tipica pasta lunga umbra, con ragù bianco misto di vitello e maiale.",
+                    "description": "Tipica pasta lunga umbra con ragù bianco misto di vitello e maiale.",
                     "price": 10
                 },
                 {
                     "name": "Strangozzi al tartufo",
-                    "description": "Strangozzi, tipica pasta lunga umbra, con tartufo estivo.",
-                    "price": 16
+                    "description": "Tipica pasta lunga umbra con tartufo estivo.",
+                    "price": 16,
+                    "vegetarian": true
                 },
                 {
-                    "name": "Zuppa di farro e ceci",
-                    "description": "Zuppa di farro e ceci con olio EVO e servita con crostino aromatizzato all’aglio.",
+                    "name": "Maltagliati fave e barbozza con pecorino",
+                    "description": "Pasta tagliata irregolarmente saltata in padella con fave, pecorino e barbozza.",
+                    "price": 12
+                },
+                {
+                    "name": "Imbrecciata de legumi",
+                    "description": "Zuppa di lenticchie, fagioli, ceci, piselli secchi e farro con olio EVO e servita con crostino di pane aromatizzato all’aglio.",
                     "price": 8,
                     "vegetarian": true
                 }
@@ -55,11 +65,12 @@
                 {
                     "name": "De pullis",
                     "details": "(da ricettario medievale)",
-                    "description": "Pollo brasato con cipolle, prugne, datteri, uva sultanina e spezie.",
+                    "description": "Pollo brasato con cipolle, prugne, datteri, uva sultanina, mandorle e spezie.",
                     "price": 10
                 },
                 {
                     "name": "Arrosticini di pecora alla brace",
+                    "details": "(5 pezzi)",
                     "price": 6
                 },
                 {
@@ -73,9 +84,9 @@
             "name": "Quarta immissione",
             "dishes": [
                 {
-                    "name": "Herbe de sora terra",
+                    "name": "Herbe de campo",
                     "description": "Erba mista ripassata in padella con aglio.",
-                    "price": 5.5,
+                    "price": 5,
                     "vegetarian": true
                 },
                 {
@@ -86,7 +97,7 @@
                 },
                 {
                     "name": "Panzanella del contadino",
-                    "description": "Lattuga, cetriolo, pane, cipolla, basilico.",
+                    "description": "Insalata di lattuga, cetriolo, pane raffermo con aceto, cipolla, basilico, olio e sale.",
                     "price": 5,
                     "vegetarian": true
                 }
@@ -96,14 +107,19 @@
             "name": "Quinta immissione",
             "dishes": [
                 {
-                    "name": "Dolcetti de Sancto Giorgio",
-                    "description": "Assortimento di biscotti secchi da ricette monastiche medievali.",
+                    "name": "Mostaccioli de San Francesco e biscotti misti",
+                    "description": "Biscotto medievale amato dal Santo d’Assisi e altri biscotti da ricette monastiche.",
                     "price": 5.5
                 },
                 {
-                    "name": "Torta de convento",
-                    "description": "Frolla farcita con marmellata di frutti rossi e crema.",
+                    "name": "Torta delle monache",
+                    "description": "Pasta frolla con marmellata di albicocche, mandorle, noci, uvetta ammorbidita con liquore.",
                     "price": 6.5
+                },
+                {
+                    "name": "Crema d’oriente con biscotto",
+                    "description": "Crema all’uovo aromatizzata alla cannella servita con biscotto.",
+                    "price": 6
                 },
                 {
                     "name": "Ippocrasso al bicchiere",
@@ -124,15 +140,44 @@
                     "price": 6
                 },
                 {
-                    "name": "Birra artigianale alla spina (½&nbsp;l)",
-                    "price": 5.5
+                    "name": "Bianco del Pilone",
+                    "details": "Terre de’ Nappi",
+                    "description": "Trebbiano spoletino",
+                    "price": 12
                 },
                 {
-                    "name": "Birra artigianale alla spina (1&nbsp;l)",
-                    "price": 10
+                    "name": "Nonso2 IGT",
+                    "details": "Di Filippo",
+                    "description": "Grechetto",
+                    "price": 16
                 },
                 {
-                    "name": "Acqua naturale o frizzante (¾&nbsp;l)",
+                    "name": "Terre San Nicola",
+                    "details": "Di Filippo",
+                    "description": "Rosso dell’Umbria",
+                    "price": 14
+                },
+                {
+                    "name": "Montefalco Rosso DOC",
+                    "details": "Terre de’ Nappi",
+                    "price": 16
+                },
+                {
+                    "name": "Preda del Falco",
+                    "details": "Tenuta Baldo",
+                    "description": "Montefalco Sagrantino DOCG",
+                    "price": 30
+                },
+                {
+                    "name": "Birra artigianale Flea (33&nbsp;cl)",
+                    "price": 6.5
+                },
+                {
+                    "name": "Acqua naturale (0,75&nbsp;l)",
+                    "price": 1
+                },
+                {
+                    "name": "Acqua frizzante (0,75&nbsp;l)",
                     "price": 1
                 }
             ]
