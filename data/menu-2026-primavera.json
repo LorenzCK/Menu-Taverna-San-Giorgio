@@ -3,6 +3,7 @@
     "closing": "2026-05-03",
     "hideMenu": false,
     "coverCharge": {
+        "id": 31,
         "name": "Coperto",
         "price": 1.5
     },
@@ -11,21 +12,25 @@
             "name": "Prima immissione",
             "dishes": [
                 {
+                    "id": 1,
                     "name": "Antipasto de lo novo Console",
                     "description": "Salame, capocollo, formaggio, salsiccia secca umbra con torta al testo e schiacciata al rosmarino.",
                     "price": 10
                 },
                 {
+                    "id": 2,
                     "name": "Antipasto de lo novo Console +&nbsp;coppa umbra",
                     "price": 12
                 },
                 {
+                    "id": 3,
                     "name": "Crostoni belli et boni",
                     "description": "Bruschette con: fagioli cannellini e zenzero; cicoria ripassata con fetta di pecorino; asparagi con fetta di pancetta croccate; mix di funghi porcini.\nOpzione vegetariana e vegana.",
                     "price": 8,
                     "vegetarian": true
                 },
                 {
+                    "id": 4,
                     "name": "Patè umbro di fegatini",
                     "description": "Patè di fegatini di pollo con aceto, vino, carota, sedano, cipolla, pasta d’acciughe, capperi, sottaceti e un pizzico di salsiccia, alloro, rosmarino e salvia.",
                     "price": 6
@@ -36,22 +41,26 @@
             "name": "Seconda immissione",
             "dishes": [
                 {
+                    "id": 5,
                     "name": "Strangozzi del beccaio",
                     "description": "Tipica pasta lunga umbra con ragù bianco misto di vitello e maiale.",
                     "price": 10
                 },
                 {
+                    "id": 6,
                     "name": "Strangozzi al tartufo",
                     "description": "Tipica pasta lunga umbra con tartufo estivo.",
                     "price": 16,
                     "vegetarian": true
                 },
                 {
+                    "id": 7,
                     "name": "Maltagliati fave e barbozza con pecorino",
                     "description": "Pasta tagliata irregolarmente saltata in padella con fave, pecorino e barbozza.",
                     "price": 12
                 },
                 {
+                    "id": 8,
                     "name": "Imbrecciata de legumi",
                     "description": "Zuppa di lenticchie, fagioli, ceci, piselli secchi e farro con olio EVO e servita con crostino di pane aromatizzato all’aglio.",
                     "price": 8,
@@ -63,17 +72,20 @@
             "name": "Terza immissione",
             "dishes": [
                 {
+                    "id": 9,
                     "name": "De pullis",
                     "details": "(da ricettario medievale)",
                     "description": "Pollo brasato con cipolle, prugne, datteri, uva sultanina, mandorle e spezie.",
                     "price": 10
                 },
                 {
+                    "id": 10,
                     "name": "Arrosticini di pecora alla brace",
                     "details": "(5 pezzi)",
                     "price": 6
                 },
                 {
+                    "id": 11,
                     "name": "Gran porco alla brace",
                     "description": "Bistecchina di collo di maiale, salsicce norcine umbre e pancetta.",
                     "price": 8.5
@@ -84,18 +96,21 @@
             "name": "Quarta immissione",
             "dishes": [
                 {
+                    "id": 12,
                     "name": "Herbe de campo",
                     "description": "Erba mista ripassata in padella con aglio.",
                     "price": 5,
                     "vegetarian": true
                 },
                 {
+                    "id": 13,
                     "name": "Cepolle rostite",
                     "description": "Cipolle arrosto.",
                     "price": 5,
                     "vegetarian": true
                 },
                 {
+                    "id": 14,
                     "name": "Panzanella del contadino",
                     "description": "Insalata di lattuga, cetriolo, pane raffermo con aceto, cipolla, basilico, olio e sale.",
                     "price": 5,
@@ -107,21 +122,25 @@
             "name": "Quinta immissione",
             "dishes": [
                 {
+                    "id": 15,
                     "name": "Mostaccioli de San Francesco e biscotti misti",
                     "description": "Biscotto medievale amato dal Santo d’Assisi e altri biscotti da ricette monastiche.",
                     "price": 5.5
                 },
                 {
+                    "id": 16,
                     "name": "Torta delle monache",
                     "description": "Pasta frolla con marmellata di albicocche, mandorle, noci, uvetta ammorbidita con liquore.",
                     "price": 6.5
                 },
                 {
+                    "id": 17,
                     "name": "Crema d’oriente con biscotto",
                     "description": "Crema all’uovo aromatizzata alla cannella servita con biscotto.",
                     "price": 6
                 },
                 {
+                    "id": 18,
                     "name": "Ippocrasso al bicchiere",
                     "description": "Vino dolce e speziato, su ricetta medievale. Buono contro ogni malanno.",
                     "price": 2
@@ -132,51 +151,71 @@
             "name": "Bono vino et cervogia",
             "dishes": [
                 {
-                    "name": "Vino rosso o bianco in brocca (½&nbsp;l)",
+                    "id": 19,
+                    "name": "Vino rosso in brocca (½&nbsp;l)",
                     "price": 4
                 },
                 {
-                    "name": "Vino rosso o bianco in brocca (1&nbsp;l)",
+                    "id": 20,
+                    "name": "Vino rosso in brocca (1&nbsp;l)",
                     "price": 6
                 },
                 {
+                    "id": 21,
+                    "name": "Vino bianco in brocca (½&nbsp;l)",
+                    "price": 4
+                },
+                {
+                    "id": 22,
+                    "name": "Vino bianco in brocca (1&nbsp;l)",
+                    "price": 6
+                },
+                {
+                    "id": 23,
                     "name": "Bianco del Pilone",
                     "details": "Terre de’ Nappi",
                     "description": "Trebbiano spoletino",
                     "price": 12
                 },
                 {
+                    "id": 24,
                     "name": "Nonso2 IGT",
                     "details": "Di Filippo",
                     "description": "Grechetto",
                     "price": 16
                 },
                 {
+                    "id": 25,
                     "name": "Terre San Nicola",
                     "details": "Di Filippo",
                     "description": "Rosso dell’Umbria",
                     "price": 14
                 },
                 {
+                    "id": 26,
                     "name": "Montefalco Rosso DOC",
                     "details": "Terre de’ Nappi",
                     "price": 16
                 },
                 {
+                    "id": 27,
                     "name": "Preda del Falco",
                     "details": "Tenuta Baldo",
                     "description": "Montefalco Sagrantino DOCG",
                     "price": 30
                 },
                 {
+                    "id": 28,
                     "name": "Birra artigianale Flea (33&nbsp;cl)",
                     "price": 6.5
                 },
                 {
+                    "id": 29,
                     "name": "Acqua naturale (0,75&nbsp;l)",
                     "price": 1
                 },
                 {
+                    "id": 30,
                     "name": "Acqua frizzante (0,75&nbsp;l)",
                     "price": 1
                 }

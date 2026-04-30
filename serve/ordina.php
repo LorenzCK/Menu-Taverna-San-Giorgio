@@ -57,7 +57,7 @@
 </head>
 
 <?php
-$content = json_decode(file_get_contents('/data/menu-2025-mercato.json'), false);
+$content = json_decode(file_get_contents('/data/menu-2026-primavera.json'), false);
 $show_closed = DateTime::createFromFormat('Y-m-d', $content->closing)->modify('+1 day') < new DateTime();
 
 $formatter_opening = new IntlDateFormatter('it_IT', IntlDateFormatter::FULL, IntlDateFormatter::NONE, 'Europe/Rome', IntlDateFormatter::GREGORIAN, 'cccc d');
