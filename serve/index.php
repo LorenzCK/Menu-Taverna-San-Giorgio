@@ -207,8 +207,8 @@ function formatPrice($price) : string {
                             </tr>
                             <tr>
                                 <td>Domenica 3&nbsp;maggio</td>
+                                <td>12:30</td>
                                 <td>—</td>
-                                <td>19:30</td>
                             </tr>
                         </tbody>
                     </table>
