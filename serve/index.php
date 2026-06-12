@@ -39,7 +39,7 @@
 </head>
 
 <?php
-$content = json_decode(file_get_contents('/data/menu-2026-primavera.json'), false);
+$content = json_decode(file_get_contents('/data/menu-2026-mercato.json'), false);
 $date_opening = DateTime::createFromFormat('Y-m-d', $content->opening);
 $date_closing = DateTime::createFromFormat('Y-m-d', $content->closing);
 

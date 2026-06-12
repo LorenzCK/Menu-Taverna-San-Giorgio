@@ -1,0 +1,251 @@
+{
+    "opening": "2026-06-18",
+    "closing": "2026-06-28",
+    "hideMenu": false,
+    "coverCharge": {
+        "id": 31,
+        "name": "Coperto",
+        "price": 1.5
+    },
+    "servings": [
+        {
+            "name": "Prima immissione",
+            "dishes": [
+                {
+                    "id": 1,
+                    "name": "Antipasto de lo novo Console",
+                    "description": "Salame, capocollo, formaggio e salsiccia secca umbri con torta al testo.",
+                    "price": 10
+                },
+                {
+                    "id": 2,
+                    "name": "Antipasto de lo novo Console +&nbsp;coppa umbra",
+                    "price": 12
+                },
+                {
+                    "id": 3,
+                    "name": "Crostoni belli et boni",
+                    "description": "Quattro crostoni con: crema di ceci e zafferano, misto di funghi con porcini, cipolla caramellata e provola, cicoria ripassata con pancetta croccante.\nOpzione vegetariana senza pancetta croccante.",
+                    "price": 8
+                },
+                {
+                    "id": 3,
+                    "name": "Tortino de piselli cum crema de cacio",
+                    "description": "Sformatino di piselli, basilico, pangrattato, porro, menta, panna e uovo con crema al parmigiano.",
+                    "price": 7,
+                    "vegetarian": true
+                },
+                {
+                    "id": 4,
+                    "name": "De pollo cum frutta et salsa de lavanda",
+                    "description": "Straccetti morbidi di pollo con melone, prugne, arancio, rucola, mandorle, succo di limone, salsa ristretta di aceto balsamico, miele e lavanda.",
+                    "price": 10
+                }
+            ]
+        },
+        {
+            "name": "Seconda immissione",
+            "dishes": [
+                {
+                    "id": 5,
+                    "name": "De rafioli",
+                    "description": "Ravioli di pasta all’uovo ripieni di ricotta, pecorino, parmigiano, noce moscata, cannella e zenzero saltati con burro e spezie.",
+                    "price": 10,
+                    "vegetarian": true
+                },
+                {
+                    "id": 6,
+                    "name": "Gnocchetti al tartufo",
+                    "description": "Gnocchetti di pane e formaggio con tartufo.",
+                    "price": 14,
+                    "vegetarian": true
+                },
+                {
+                    "id": 7,
+                    "name": "Strangozzi del beccaio",
+                    "description": "Strangozzi, tipica pasta lunga umbra a sezione quadrata, con ragù bianco misto di vitello e maiale.",
+                    "price": 9
+                },
+                {
+                    "id": 8,
+                    "name": "Crema de fave cum cacio fuso",
+                    "description": "Crema di fave servita con una fetta di formaggio pecorino fuso.\nOpzione vegana senza formaggio.",
+                    "price": 8,
+                    "vegetarian": true
+                }
+            ]
+        },
+        {
+            "name": "Terza immissione",
+            "dishes": [
+                {
+                    "id": 9,
+                    "name": "Del brodo saracenico",
+                    "details": "(ricetta medievale tratta da Anonimo Toscano, Libro de Cocina, XIV&nbsp;secolo)",
+                    "description": "Pollo stufato in pentola con lardo stagionato, prugne secche, datteri, uvetta, insaporito con zafferano, cannella, pepe, zenzero e chiodi di garofano.",
+                    "price": 13
+                },
+                {
+                    "id": 10,
+                    "name": "Brasato de vitello cum salsa de arance et prugne",
+                    "description": "Cappello del prete (taglio bovino) brasato con arance, prugne, zenzero e cannella dal sapore agrodolce.",
+                    "price": 12
+                },
+                {
+                    "id": 11,
+                    "name": "Agnello in crosta de pane",
+                    "description": "Agnello arrotolato con ripieno di salsiccia ed erbe odorifere avvolto in una crosta di pane.",
+                    "price": 14
+                },
+                {
+                    "id": 11,
+                    "name": "Civero de cinghiale",
+                    "details": "(ricetta medievale tratta da Mastro Martino, Libro de Arte Coquinaria, XIV&nbsp;secolo)",
+                    "description": "Spezzatino di cinghiale cotto con vino rosso, aceto, uvetta, mandorle, cannella, zenzero.",
+                    "price": 12
+                }
+            ]
+        },
+        {
+            "name": "Quarta immissione",
+            "dishes": [
+                {
+                    "id": 12,
+                    "name": "Herbe de campo",
+                    "description": "Erba mista ripassata in padella con aglio.",
+                    "price": 5,
+                    "vegetarian": true
+                },
+                {
+                    "id": 13,
+                    "name": "Cepolle rostite alla zafrana",
+                    "description": "Cipolle arrosto con rosmarino, zafferano e spezie.",
+                    "price": 5,
+                    "vegetarian": true
+                },
+                {
+                    "id": 14,
+                    "name": "Panzanella del contadino",
+                    "description": "Insalata di lattuga, cetriolo, cipolla, e pane raffermo, condita con aceto, olio e sale.",
+                    "price": 5,
+                    "vegetarian": true
+                }
+            ]
+        },
+        {
+            "name": "Quinta immissione",
+            "dishes": [
+                {
+                    "id": 15,
+                    "name": "Mostaccioli de San Francesco e biscotti misti",
+                    "description": "Biscotto medievale amato dal Santo d’Assisi e altri biscotti da ricette monastiche.",
+                    "price": 5.5
+                },
+                {
+                    "id": 17,
+                    "name": "Cialda de lo zecchiere con crema allo zafrano et amarena",
+                    "description": "Cono di cialda umbra a base di anice ripiena di crema all’uovo con zafferano e servita con amarena.",
+                    "price": 6.5
+                },
+                {
+                    "id": 18,
+                    "name": "Ippocrasso",
+                    "details": "(al bicchiere)",
+                    "description": "Vino dolce e speziato, su ricetta medievale. Buono contro ogni malanno.",
+                    "price": 2
+                }
+            ]
+        },
+        {
+            "name": "Bono vino et cervogia",
+            "dishes": [
+                {
+                    "id": 19,
+                    "name": "Vino rosso in brocca (½&nbsp;l)",
+                    "price": 4.5
+                },
+                {
+                    "id": 20,
+                    "name": "Vino rosso in brocca (1&nbsp;l)",
+                    "price": 7
+                },
+                {
+                    "id": 21,
+                    "name": "Vino bianco in brocca (½&nbsp;l)",
+                    "price": 4.5
+                },
+                {
+                    "id": 22,
+                    "name": "Vino bianco in brocca (1&nbsp;l)",
+                    "price": 7
+                },
+                {
+                    "id": 23,
+                    "name": "Trebbiano spoletino",
+                    "details": "Terre dei Nappi",
+                    "description": "Bianco del Pilone",
+                    "price": 12
+                },
+                {
+                    "id": 24,
+                    "name": "Grechetto",
+                    "details": "Di Filippo",
+                    "description": "Nonso2 IGT",
+                    "price": 16
+                },
+                {
+                    "id": 25,
+                    "name": "Rosso dell’Umbria",
+                    "details": "Di Filippo",
+                    "description": "Terre San Nicola",
+                    "price": 14
+                },
+                {
+                    "id": 26,
+                    "name": "Montefalco Rosso DOC",
+                    "details": "Terre dei Nappi",
+                    "price": 16
+                },
+                {
+                    "id": 27,
+                    "name": "Montefalco Sagrantino DOCG",
+                    "details": "Tenuta Baldo",
+                    "description": "Preda del Falco",
+                    "price": 23
+                },
+                {
+                    "id": 27,
+                    "name": "Montefalco Sagrantino DOCG 2017",
+                    "details": "Terre dei Nappi",
+                    "description": "Preda del Falco",
+                    "price": 26
+                },
+                {
+                    "id": 28,
+                    "name": "Birra “Vikingen” alla spina (½&nbsp;l)",
+                    "price": 6
+                },
+                {
+                    "id": 28,
+                    "name": "Birra “Vikingen” alla spina (1&nbsp;l)",
+                    "price": 10
+                },
+                {
+                    "id": 28,
+                    "name": "Birra artigianale umbra “Residual” in bottiglia (33&nbsp;cl)",
+                    "price": 6.5
+                },
+                {
+                    "id": 29,
+                    "name": "Acqua naturale (0,75&nbsp;l)",
+                    "price": 1
+                },
+                {
+                    "id": 30,
+                    "name": "Acqua frizzante (0,75&nbsp;l)",
+                    "price": 1
+                }
+            ]
+        }
+    ]
+}
