@@ -80,7 +80,7 @@ $formatter_closing = new IntlDateFormatter('it_IT', IntlDateFormatter::FULL, Int
 
         <div class="instructions">
             <p>
-                Presentare il codice alla cassa interna della Taverna per il pagamento.
+                Presentare il codice alla cassa per il pagamento.
             </p>
         </div>
     </div>
