@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <title>Taverna Gaita San Giorgio — Ordine online</title>
 
@@ -52,6 +52,11 @@
         :root {
             color-scheme: light;
         }
+    }
+
+    /* Disable double-tap zoom on mobile */
+    button, a, input, select, textarea {
+        touch-action: manipulation;
     }
     </style>
 </head>
@@ -180,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('h1.title').addEventListener('click', () => {
         megaSecretUnlocker++;
         if (megaSecretUnlocker >= 8) {
-            document.querySelector('h1.title').innerHTML = 'Taverna Gaita San&nbsp;Giorgio — Gestione';
+            document.querySelector('h1.title').innerHTML = 'Taverna Gaita San&nbsp;Giorgio<br />Gestione';
             document.querySelectorAll('.private').forEach(el => {
                 el.classList.remove('is-hidden');
             });
@@ -205,7 +210,13 @@ function recompute() {
     document.querySelector('.total .value span').textContent = latestTotal.toFixed(2).replace('.', ',');
 }
 
-function generatePayload() {
+/**
+ * Generates the QR Code Payload as a string.
+ * The payload follows the format "GSG<dish_id>x<dish_count>-<dish_id>x<dish_count>-...".
+ *
+ * @return {string|null} The generated payload string or null if no dishes are selected.
+ */
+function generateQrPayload() {
     const dishes = document.querySelectorAll('.dish');
     let payload = '';
     dishes.forEach(dish => {
@@ -221,11 +232,61 @@ function generatePayload() {
     });
 
     if(payload == '') {
-        alert('Nessun piatto selezionato.');
         return null;
     }
 
-    return payload;
+    return "GSG" + payload;
+}
+
+function generateThermerUrl(payload, total) {
+    let data = {
+        "0": {
+            "type": 0,
+            "content": "Taverna San Giorgio",
+            "bold": 1,
+            "align": 1,
+            "format": 1
+        },
+        "1": {
+            "type": 0,
+            "content": " ",
+            "bold": 0,
+            "align": 0
+        },
+        "2": {
+            "type": 3,
+            "value": payload,
+            "size": 360,
+            "align": 1
+        },
+        "3": {
+            "type": 0,
+            "content": " ",
+            "bold": 0,
+            "align": 0
+        },
+        "4": {
+            "type": 0,
+            "content": "Totale: " + total,
+            "bold": 1,
+            "align": 1,
+            "format": 0
+        },
+        "5": {
+            "type": 0,
+            "content": "Presentare il codice alla cassa per il pagamento.",
+            "align": 0,
+            "format": 0
+        },
+        "6": {
+            "type": 0,
+            "content": " ",
+            "bold": 0,
+            "align": 0
+        }
+    };
+
+    return 'thermer://?data=' + encodeURIComponent(JSON.stringify(data));
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -256,13 +317,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add show order button handler
     document.getElementById('show-order').addEventListener('click', () => {
-        const payload = generatePayload();
+        const payload = generateQrPayload();
         if (payload === null) {
+            alert('Nessun piatto selezionato.');
             return;
         }
 
         var qr = new VanillaQR({
-            url: "GSG" + payload,
+            url: payload,
             size: 512,
             colorLight: "#ffffff",
             colorDark: "#000000",
@@ -284,16 +346,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add print order button handler
     document.getElementById('print-order').addEventListener('click', () => {
-        const base = 'https://<?= $_SERVER['SERVER_NAME'] ?><?= dirname($_SERVER["REQUEST_URI"]) ?>print?total=' + latestTotal.toFixed(2).replace(',', '.') + '&payload=';
-        // console.log('Base URL: ' + base);
-
-        const payload = generatePayload();
+        const payload = generateQrPayload();
         if (payload === null) {
+            alert('Nessun piatto selezionato.');
             return;
         }
 
-        const destination = 'my.bluetoothprint.scheme://' + base + payload;
-        // console.log(destination);
+        const destination = generateThermerUrl(payload, latestTotal.toFixed(2).replace('.', ','));
 
         window.location = destination;
     });

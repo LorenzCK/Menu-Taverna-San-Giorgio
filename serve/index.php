@@ -191,24 +191,60 @@ function formatPrice($price) : string {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Giovedì 30&nbsp;aprile</td>
+                                <td>Giovedì 18&nbsp;giugno</td>
                                 <td>—</td>
-                                <td>19:30</td>
+                                <td>19:30–22:30</td>
                             </tr>
                             <tr>
-                                <td>Venerdì 1°&nbsp;maggio</td>
-                                <td>12:30</td>
-                                <td>19:30</td>
-                            </tr>
-                            <tr>
-                                <td>Sabato 2&nbsp;maggio</td>
-                                <td>12:30</td>
-                                <td>19:30</td>
-                            </tr>
-                            <tr>
-                                <td>Domenica 3&nbsp;maggio</td>
-                                <td>12:30</td>
+                                <td>Venerdì 19&nbsp;giugno</td>
                                 <td>—</td>
+                                <td>19:30–22:30</td>
+                            </tr>
+                            <tr>
+                                <td>Sabato 20&nbsp;giugno</td>
+                                <td>12:30–14:30</td>
+                                <td>19:30–22:30</td>
+                            </tr>
+                            <tr>
+                                <td>Domenica 21&nbsp;giugno</td>
+                                <td>12:30–14:30</td>
+                                <td>19:30–22:30</td>
+                            </tr>
+
+                            <tr>
+                                <td>Lunedì 22&nbsp;giugno</td>
+                                <td>—</td>
+                                <td>19:30–22:30</td>
+                            </tr>
+                            <tr>
+                                <td>Martedì 23&nbsp;giugno</td>
+                                <td>—</td>
+                                <td>19:30–22:30</td>
+                            </tr>
+                            <tr>
+                                <td>Mercoledì 24&nbsp;giugno</td>
+                                <td>—</td>
+                                <td>19:30–22:30</td>
+                            </tr>
+                            <tr>
+                                <td>Giovedì 25&nbsp;giugno</td>
+                                <td>—</td>
+                                <td>19:30–22:30</td>
+                            </tr>
+                            <tr>
+                                <td>Venerdì 26&nbsp;giugno</td>
+                                <td>—</td>
+                                <td>19:30–22:30</td>
+                            </tr>
+                            <tr>
+                                <td>Sabato 27&nbsp;giugno</td>
+                                <td>12:30–14:30</td>
+                                <td>19:30–22:30</td>
+                            </tr>
+                            <tr>
+                                <td>Domenica 28&nbsp;giugno</td>
+                                <td>12:30–14:30</td>
+                                <td>19:30–22:30</td>
                             </tr>
                         </tbody>
                     </table>
