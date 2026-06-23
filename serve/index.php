@@ -40,8 +40,10 @@
 
 <?php
 $content = json_decode(file_get_contents('/data/menu-2026-mercato.json'), false);
-$date_opening = DateTime::createFromFormat('Y-m-d', $content->opening);
-$date_closing = DateTime::createFromFormat('Y-m-d', $content->closing);
+
+$rome_tz = new DateTimeZone('Europe/Rome');
+$date_opening = DateTime::createFromFormat('Y-m-d', $content->opening, $rome_tz);
+$date_closing = DateTime::createFromFormat('Y-m-d', $content->closing, $rome_tz);
 
 // Showing closed if closing date is in the past by 1 day
 $show_closed = (clone $date_closing)->modify('+1 day') < new DateTime();
